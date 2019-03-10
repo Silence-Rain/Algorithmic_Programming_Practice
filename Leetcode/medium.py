@@ -1,5 +1,26 @@
 import math
 
+def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+	carry = 0 
+    head = ListNode(0)
+    currentNode = head
+    while l1 or l2:
+        if l1:
+            carry += l1.val
+            l1 = l1.next
+        if l2:
+            carry += l2.val
+            l2 = l2.next
+            
+        currentNode.next = ListNode(carry % 10)
+        currentNode = currentNode.next
+        carry = carry // 10
+        
+    if carry == 1:
+        currentNode.next = ListNode(1)
+        currentNode = currentNode.next
+    return head.next
+
 def findKthLargest(nums, k):
 	nums.sort(reverse=True)
 	return nums[k - 1]
