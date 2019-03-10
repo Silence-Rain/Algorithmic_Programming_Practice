@@ -14,6 +14,8 @@ Solutions of Leetcode problems.
 
 - Medium
 
+	- #2 Add Two Numbers
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
