@@ -16,6 +16,8 @@ Solutions of Leetcode problems.
 
 	- #2 Add Two Numbers
 
+	- #3 Longest Substring Without Repeating Characters
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
