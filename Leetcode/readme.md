@@ -29,3 +29,7 @@ Solutions of Leetcode problems.
 	- #525 Contiguous Array
 
 	- #593 Valid Square
+
+- Hard
+
+	- #4 Median of Two Sorted Arrays
