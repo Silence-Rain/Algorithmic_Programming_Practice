@@ -18,6 +18,8 @@ Solutions of Leetcode problems.
 
 	- #3 Longest Substring Without Repeating Characters
 
+	- #5 Longest Palindromic Substring
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
