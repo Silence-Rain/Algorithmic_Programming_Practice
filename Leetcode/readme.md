@@ -8,6 +8,8 @@ Solutions of Leetcode problems.
 
 	- #1 Two Sum
 
+	- #7 Reverse Integer
+
 	- #26 Remove Duplicates from Sorted Array 
 
 	- #697 Degree of an Array
