@@ -66,6 +66,20 @@ def longestPalindrome(s: str) -> str:
 
     return s[start:maxLen + start]
 
+def convert(s: str, numRows: int) -> str:
+    if numRows == 1:
+        return s
+    
+    mat = [[] for _ in range(numRows)]
+    n = len(s)
+    for i in range(n):
+        size = 2 * (numRows - 1)
+        tempInd = i % size
+        index = tempInd if tempInd < size / 2 else size - tempInd
+        mat[index].append(s[i])
+        
+    return "".join(["".join(x) for x in mat])
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
