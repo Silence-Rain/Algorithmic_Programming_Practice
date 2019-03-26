@@ -20,6 +20,8 @@ Solutions of Leetcode problems.
 
 	- #5 Longest Palindromic Substring
 
+	- #6 ZigZag Convertion
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
