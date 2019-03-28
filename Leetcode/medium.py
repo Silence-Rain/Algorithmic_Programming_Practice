@@ -1,4 +1,8 @@
 import math
+import re
+
+class ListNode:
+    pass
 
 def addTwoNumbers(l1: ListNode, l2: ListNode) -> ListNode:
     carry = 0 
@@ -79,6 +83,21 @@ def convert(s: str, numRows: int) -> str:
         mat[index].append(s[i])
         
     return "".join(["".join(x) for x in mat])
+
+def myAtoi(str: str) -> int:
+    match = re.match(r'^(\s*[\+\-]?[0-9]+)[^0-9]+', str)
+    INT_MAX = 2 ** 31 - 1
+    INT_MIN = - 2 ** 31
+
+    try:
+        if match:
+            ret = int(match.group(1))
+        else:
+            ret = int(str)
+    except ValueError as e:
+        ret = 0
+
+    return INT_MAX if ret > INT_MAX else (ret if ret >= INT_MIN else INT_MIN)
 
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
@@ -184,4 +203,3 @@ def valid_square(p1, p2, p3, p4):
         return (p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2
     res = set((dist(p1, p2), dist(p1, p3), dist(p1, p4), dist(p2, p3), dist(p2, p4), dist(p3, p4)))
     return (0 not in res) and len(res) == 2
-
