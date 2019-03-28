@@ -24,6 +24,8 @@ Solutions of Leetcode problems.
 
 	- #6 ZigZag Convertion
 
+	- #8 String to Integer (atoi)
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
