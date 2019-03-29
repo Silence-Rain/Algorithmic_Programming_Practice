@@ -10,7 +10,7 @@ Solutions of Leetcode problems.
 
 	- #7 Reverse Integer
 
-	- #9 Palindrome Number
+	- #9 Palindrome Number (Simple & Convert-to-String)
 
 	- #26 Remove Duplicates from Sorted Array 
 
