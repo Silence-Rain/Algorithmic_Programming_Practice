@@ -10,6 +10,8 @@ Solutions of Leetcode problems.
 
 	- #7 Reverse Integer
 
+	- #9 Palindrome Number
+
 	- #26 Remove Duplicates from Sorted Array 
 
 	- #697 Degree of an Array
