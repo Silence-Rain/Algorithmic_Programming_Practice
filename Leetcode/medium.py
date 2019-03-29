@@ -99,6 +99,21 @@ def myAtoi(str: str) -> int:
 
     return INT_MAX if ret > INT_MAX else (ret if ret >= INT_MIN else INT_MIN)
 
+def maxArea(height: List[int]) -> int:
+    left = 0
+    right = len(height) - 1
+    maxArea = 0
+    
+    while left != right:
+        if height[left] < height[right]:
+            minHeight = height[left]
+            left += 1
+        else:
+            minHeight = height[right]
+            right -= 1
+        
+        maxArea = max(maxArea, (right - left + 1) * minHeight)
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
