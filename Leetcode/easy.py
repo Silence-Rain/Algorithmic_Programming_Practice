@@ -33,6 +33,11 @@ def reverse(x: int) -> int:
     ret = int("".join(xlist))
     return ret if ret >= - 2 ** 31 and ret <= 2 ** 31 - 1 else 0
 
+def isPalindrome_simple(x: int) -> bool:
+    s = str(x)
+    rev = str(x)[::-1]
+    return s == rev
+
 def isPalindrome_no_str(x: int) -> bool:
     if x < 0 or (x % 10 == 0 and x != 0):
         return False
