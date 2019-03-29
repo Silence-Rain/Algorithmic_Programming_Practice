@@ -33,6 +33,17 @@ def reverse(x: int) -> int:
     ret = int("".join(xlist))
     return ret if ret >= - 2 ** 31 and ret <= 2 ** 31 - 1 else 0
 
+def isPalindrome_no_str(x: int) -> bool:
+    if x < 0 or (x % 10 == 0 and x != 0):
+        return False
+    
+    reverted = 0
+    while x > reverted:
+        reverted = reverted * 10 + x % 10
+        x = int(x / 10)
+        
+    return x == reverted or x == int(reverted / 10)
+
 def remove_duplicates(nums):
     i = 0
     j = 0
