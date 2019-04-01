@@ -12,6 +12,8 @@ Solutions of Leetcode problems.
 
 	- #9 Palindrome Number (Simple & Convert-to-String)
 
+	- #13 Roman to Integer
+
 	- #26 Remove Duplicates from Sorted Array 
 
 	- #697 Degree of an Array
