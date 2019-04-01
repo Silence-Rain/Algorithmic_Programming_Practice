@@ -136,6 +136,28 @@ def intToRoman(num: int) -> str:
     
     return "".join(ret)
 
+def romanToInt(s: str) -> int:
+        mapping = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000
+        }
+        ret = 0
+        n = len(s)
+        
+        for i in range(n - 1):
+            cur = mapping[s[i]]
+            next = mapping[s[i + 1]]
+            if cur >= next:
+                ret += cur
+            else:
+                ret -= cur
+                
+        return ret + mapping[s[n - 1]]
 
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
