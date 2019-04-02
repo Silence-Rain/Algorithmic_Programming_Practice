@@ -14,6 +14,8 @@ Solutions of Leetcode problems.
 
 	- #13 Roman to Integer
 
+	- #14 Longest Common Prefix
+
 	- #26 Remove Duplicates from Sorted Array 
 
 	- #697 Degree of an Array
