@@ -49,6 +49,24 @@ def isPalindrome_no_str(x: int) -> bool:
         
     return x == reverted or x == int(reverted / 10)
 
+def longestCommonPrefix(strs: List[str]) -> str:
+    ind = 0
+    n = len(strs)
+    
+    if n == 0:
+        return ""
+    elif n == 1:
+        return strs[0]
+    else:
+        try:
+            while True:
+                for i in range(1, n):
+                    if strs[i - 1][ind] != strs[i][ind]:
+                        return strs[0][:ind]
+                ind += 1
+        except:
+            return strs[0][:ind]
+
 def remove_duplicates(nums):
     i = 0
     j = 0
