@@ -36,6 +36,8 @@ Solutions of Leetcode problems.
 
 	- #12 Integer to Roman
 
+	- #15 3Sum
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
