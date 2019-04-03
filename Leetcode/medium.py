@@ -159,6 +159,37 @@ def romanToInt(s: str) -> int:
                 
         return ret + mapping[s[n - 1]]
 
+def threeSum(self, nums: List[int]) -> List[List[int]]:
+    res = []
+    nums.sort()
+    n = len(nums)
+    if n == 0 or nums[0] > 0 or nums[n - 1] < 0:
+        return []
+    for k in range(n):
+        if nums[k] > 0:
+            break
+        if k > 0 and nums[k] == nums[k - 1]:
+            continue
+        target = 0 - nums[k]
+
+        i = k + 1
+        j = n - 1
+        while i < j:
+            if nums[i] + nums[j] == target:
+                res.append([nums[k], nums[i], nums[j]])
+                while i < j and nums[i] == nums[i + 1]:
+                    i += 1
+                while i < j and nums[j] == nums[j - 1]:
+                    j -= 1
+                i += 1
+                j -= 1
+            elif nums[i] + nums[j] < target:
+                i += 1
+            else:
+                j -= 1
+
+    return res
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
