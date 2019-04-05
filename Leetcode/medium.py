@@ -1,5 +1,6 @@
 import math
 import re
+import itertools
 
 class ListNode:
     pass
@@ -159,7 +160,7 @@ def romanToInt(s: str) -> int:
                 
         return ret + mapping[s[n - 1]]
 
-def threeSum(self, nums: List[int]) -> List[List[int]]:
+def threeSum(nums: list) -> list:
     res = []
     nums.sort()
     n = len(nums)
@@ -189,6 +190,24 @@ def threeSum(self, nums: List[int]) -> List[List[int]]:
                 j -= 1
 
     return res
+
+def letterCombinations(digits: str):
+    if len(digits) == 0:
+        return []
+    
+    maps = {
+        "2": ["a", "b", "c"],
+        "3": ["d", "e", "f"],
+        "4": ["g", "h", "i"],
+        "5": ["j", "k", "l"],
+        "6": ["m", "n", "o"],
+        "7": ["p", "q", "r", "s"],
+        "8": ["t", "u", "v"],
+        "9": ["w", "x", "y", "z"]
+    }
+    arr = [maps[x] for x in list(digits)]
+    return ["".join(x) for x in itertools.product(*arr)]
+
 
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
@@ -295,6 +314,3 @@ def valid_square(p1, p2, p3, p4):
     res = set((dist(p1, p2), dist(p1, p3), dist(p1, p4), dist(p2, p3), dist(p2, p4), dist(p3, p4)))
     return (0 not in res) and len(res) == 2
 
-
-if __name__ == '__main__':
-    print(intToRoman(1994))

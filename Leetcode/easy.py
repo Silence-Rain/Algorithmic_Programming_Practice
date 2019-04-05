@@ -96,3 +96,5 @@ def findShortestSubArray(nums):
             cur = item
 
     return cur[2] - cur[1] + 1
+
+    
