@@ -38,6 +38,8 @@ Solutions of Leetcode problems.
 
 	- #15 3Sum
 
+	- #17 Letter Combinations of a Phone Number
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
