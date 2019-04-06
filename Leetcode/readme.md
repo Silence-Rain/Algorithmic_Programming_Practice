@@ -40,6 +40,8 @@ Solutions of Leetcode problems.
 
 	- #17 Letter Combinations of a Phone Number
 
+	- #19 Remove Nth Node From End of List
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
