@@ -3,7 +3,9 @@ import re
 import itertools
 
 class ListNode:
-    pass
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
 def addTwoNumbers(l1: ListNode, l2: ListNode) -> ListNode:
     carry = 0 
@@ -208,6 +210,22 @@ def letterCombinations(digits: str):
     arr = [maps[x] for x in list(digits)]
     return ["".join(x) for x in itertools.product(*arr)]
 
+def removeNthFromEnd(head: ListNode, n: int) -> ListNode:
+    l = ListNode(0)
+    l.next = head
+    p1 = l
+    p2 = l
+    
+    for i in range(n + 1):
+        p1 = p1.next
+
+    while p1:
+        p1 = p1.next
+        p2 = p2.next
+ 
+    p2.next = p2.next.next
+    
+    return l.next
 
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
