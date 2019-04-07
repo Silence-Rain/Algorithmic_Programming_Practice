@@ -16,6 +16,8 @@ Solutions of Leetcode problems.
 
 	- #14 Longest Common Prefix
 
+	- #20 Valid Parentheses
+
 	- #26 Remove Duplicates from Sorted Array 
 
 	- #697 Degree of an Array
