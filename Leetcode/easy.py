@@ -67,6 +67,28 @@ def longestCommonPrefix(strs: List[str]) -> str:
         except:
             return strs[0][:ind]
 
+def isValid(s: str) -> bool:
+    front = ["{", "[", "("]
+    back = ["}", "]", ")"]
+    strs = list(s)
+    
+    if not len(strs):
+        return True
+    if len(strs) == 1 or strs[0] in back:
+        return False
+    
+    stack = [strs.pop(0)]
+    while len(strs):
+        cur = strs.pop(0)
+        if cur in front:
+            stack.append(cur)
+        elif not len(stack) or front.index(stack[-1]) != back.index(cur):
+            return False
+        else:
+            stack.pop()
+            
+    return False if len(stack) else True
+
 def remove_duplicates(nums):
     i = 0
     j = 0
