@@ -18,6 +18,8 @@ Solutions of Leetcode problems.
 
 	- #20 Valid Parentheses
 
+	- #21 Merge Two Sorted Lists
+
 	- #26 Remove Duplicates from Sorted Array 
 
 	- #697 Degree of an Array
