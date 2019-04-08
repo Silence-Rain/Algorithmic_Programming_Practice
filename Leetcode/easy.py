@@ -1,3 +1,8 @@
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
 def twosum(nums, target):
     dic = {}
     for i, item in enumerate(nums):
@@ -88,6 +93,34 @@ def isValid(s: str) -> bool:
             stack.pop()
             
     return False if len(stack) else True
+
+def mergeTwoLists(l1: ListNode, l2: ListNode) -> ListNode:
+    p1 = l1
+    p2 = l2
+    res = ListNode(0)
+    head = res
+    
+    while p1 and p2:
+        if p1.val <= p2.val:
+            res.next = ListNode(p1.val)
+            p1 = p1.next
+        else:
+            res.next = ListNode(p2.val)
+            p2 = p2.next
+        res = res.next
+    
+    if p1:
+        while p1:
+            res.next = ListNode(p1.val)
+            p1 = p1.next
+            res = res.next
+    else:
+        while p2:
+            res.next = ListNode(p2.val)
+            p2 = p2.next
+            res = res.next
+    
+    return head.next
 
 def remove_duplicates(nums):
     i = 0
