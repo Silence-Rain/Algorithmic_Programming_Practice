@@ -46,6 +46,8 @@ Solutions of Leetcode problems.
 
 	- #19 Remove Nth Node From End of List
 
+	- #22 Generate Parentheses
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
