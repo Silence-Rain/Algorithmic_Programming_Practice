@@ -227,6 +227,21 @@ def removeNthFromEnd(head: ListNode, n: int) -> ListNode:
     
     return l.next
 
+def generateParenthesis(n: int) -> list:
+    ret = []
+    
+    def enum(s, lcnt = 0, rcnt = 0):
+        if len(s) == 2 * n:
+            ret.append(s)
+            return
+        if lcnt < n:
+            enum(s + '(', lcnt + 1, rcnt)
+        if rcnt < lcnt:
+            enum(s + ')', lcnt, rcnt + 1)
+
+    enum("")
+    return ret
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
