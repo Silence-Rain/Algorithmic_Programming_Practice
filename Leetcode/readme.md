@@ -63,3 +63,7 @@ Solutions of Leetcode problems.
 - Hard
 
 	- #4 Median of Two Sorted Arrays
+
+	- #23 Merge k Sorted Lists
+
+	
