@@ -242,6 +242,29 @@ def generateParenthesis(n: int) -> list:
     enum("")
     return ret
 
+def swapPairs(head: ListNode) -> ListNode:
+    if not head or not head.next:
+        return head
+    
+    temp = ListNode(0)
+    bef = temp
+    first = temp.next = head
+    second = first.next
+    
+    while second:
+        bef.next = second
+        first.next = second.next
+        second.next = first
+        
+        bef = first
+        first = first.next
+        if not first:
+            break
+        else:
+            second = first.next
+    
+    return temp.next
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
