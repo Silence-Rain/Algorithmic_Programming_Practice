@@ -48,6 +48,8 @@ Solutions of Leetcode problems.
 
 	- #22 Generate Parentheses
 
+	- #24 Swap Nodes in Pairs
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
