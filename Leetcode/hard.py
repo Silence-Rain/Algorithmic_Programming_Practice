@@ -25,6 +25,36 @@ def findMedianSortedArrays(nums1: List[int], nums2: List[int]) -> float:
 
     return float(res[-1]) if flag else (res[-2] + res[-1]) / 2.0
 
+def reverseKGroup(head: ListNode, k: int) -> ListNode:
+    def rev(pre: ListNode, next: ListNode):
+        last = pre.next
+        cur = last.next
+        while cur != next:
+            last.next = cur.next
+            cur.next = pre.next
+            pre.next = cur
+            cur = last.next
+        return last
+
+    if not head or k == 1:
+        return head
+
+    temp = ListNode(0)
+    temp.next = head
+    pre = temp
+    cur = head
+
+    i = 1
+    while cur:
+        if (i % k == 0):
+            pre = rev(pre, cur.next)
+            cur = pre.next
+        else:
+            cur = cur.next
+        i += 1
+
+    return temp.next
+
 def mergeKLists(lists: list) -> ListNode:
     n = len(lists)
     head = res = ListNode(0)
