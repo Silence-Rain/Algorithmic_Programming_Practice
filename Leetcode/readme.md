@@ -68,4 +68,7 @@ Solutions of Leetcode problems.
 
 	- #23 Merge k Sorted Lists
 
+	- #25 Reverse Nodes in k-Group
+
+
 	
