@@ -22,6 +22,8 @@ Solutions of Leetcode problems.
 
 	- #26 Remove Duplicates from Sorted Array 
 
+	- #27 Remove Element
+
 	- #697 Degree of an Array
 
 - Medium
