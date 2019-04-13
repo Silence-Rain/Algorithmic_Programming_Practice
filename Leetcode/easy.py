@@ -141,6 +141,12 @@ def removeElement(nums: list, val: int) -> int:
         nums.remove(val)
     return len(nums)
 
+def strStr(haystack: str, needle: str) -> int:
+    for i in range(len(haystack) - len(needle) + 1):
+        if haystack[i:i + len(needle)] == needle:
+            return i
+    return -1
+
 def findShortestSubArray(nums):
     m = {}
     for i,item in enumerate(nums):
