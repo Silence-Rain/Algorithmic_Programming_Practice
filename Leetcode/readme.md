@@ -24,6 +24,8 @@ Solutions of Leetcode problems.
 
 	- #27 Remove Element
 
+	- #28 Implement strStr()
+
 	- #697 Degree of an Array
 
 - Medium
