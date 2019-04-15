@@ -54,6 +54,8 @@ Solutions of Leetcode problems.
 
 	- #24 Swap Nodes in Pairs
 
+	- #31 Next Permutation
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
