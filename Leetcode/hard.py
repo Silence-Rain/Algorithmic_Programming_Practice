@@ -55,6 +55,29 @@ def reverseKGroup(head: ListNode, k: int) -> ListNode:
 
     return temp.next
 
+def mergeKLists(lists: list) -> ListNode:
+    n = len(lists)
+    head = res = ListNode(0)
+    
+    while True:
+        min_ind = -1
+        min_val = None
+        for i in range(0, n):
+            if not lists[i]:
+                continue          
+            if min_val is None or lists[i].val <= min_val:
+                min_ind = i
+                min_val = lists[i].val
+                
+        if min_ind == -1:
+            break
+        
+        res.next = ListNode(min_val)
+        res = res.next
+        lists[min_ind] = lists[min_ind].next
+
+    return head.next
+
 def findSubstring(s: str, words: list) -> list:
     s_l = len(s)
     ws_l = len(words)
@@ -86,26 +109,4 @@ def findSubstring(s: str, words: list) -> list:
                 ret.append(i)
                 
     return ret  
-
-def mergeKLists(lists: list) -> ListNode:
-    n = len(lists)
-    head = res = ListNode(0)
     
-    while True:
-        min_ind = -1
-        min_val = None
-        for i in range(0, n):
-            if not lists[i]:
-                continue          
-            if min_val is None or lists[i].val <= min_val:
-                min_ind = i
-                min_val = lists[i].val
-                
-        if min_ind == -1:
-            break
-        
-        res.next = ListNode(min_val)
-        res = res.next
-        lists[min_ind] = lists[min_ind].next
-
-    return head.next

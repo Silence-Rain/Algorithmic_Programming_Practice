@@ -74,5 +74,7 @@ Solutions of Leetcode problems.
 
 	- #25 Reverse Nodes in k-Group
 
+	- #30 Substring with Concatenation of All Words
+
 
 	
