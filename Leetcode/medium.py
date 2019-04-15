@@ -265,6 +265,37 @@ def swapPairs(head: ListNode) -> ListNode:
     
     return temp.next
 
+def nextPermutation(nums: list) -> None:
+    n = len(nums)
+    for i in range(n - 1, 0, -1):
+        if nums[i - 1] < nums[i]:
+            # find first larger element in i - n
+            cur_max = None
+            cur_ind = None
+            for j in range(i - 1, n):
+                if nums[j] > nums[i - 1]:
+                    if not cur_max or nums[j] <= cur_max:
+                        cur_max = nums[j]
+                        cur_ind = j
+            # swap them
+            temp = nums[i - 1]
+            nums[i - 1] = nums[cur_ind]
+            nums[cur_ind] = temp
+            # sort i~n in ascending order (reverse)
+            l = i
+            r = n - 1
+            while l < r:
+                temp = nums[l]
+                nums[l] = nums[r]
+                nums[r] = temp
+                
+                l += 1
+                r -= 1          
+            return
+        
+    nums.sort()
+    return
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
