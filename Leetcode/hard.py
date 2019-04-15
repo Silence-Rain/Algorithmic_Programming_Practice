@@ -86,21 +86,21 @@ def findSubstring(s: str, words: list) -> list:
         return []
     
     w_l = len(words[0])
+    words_map = {}
+    for item in words:
+        if item in words_map:
+            words_map[item] += 1
+        else:
+            words_map[item] = 1
     
     for i in range(s_l - w_l * ws_l + 1):
-        words_map = {}
-        for ind, item in enumerate(words):
-            if item in words_map:
-                words_map[item].append(ind)
-            else:
-                words_map[item] = [ind]
-                
-        if s[i:i + w_l] in words_map:
+        w_map_temp = words_map.copy()
+        if s[i:i + w_l] in w_map_temp:
             flag = True
             for j in range(ws_l):
                 temp_str = s[i + w_l * j:i + w_l * (j + 1)]  
-                if temp_str in words_map and len(words_map[temp_str]):
-                    words_map[temp_str].pop()
+                if temp_str in w_map_temp and w_map_temp[temp_str] != 0:
+                    w_map_temp[temp_str] -= 1
                 else:
                     flag = False
                     break
@@ -108,5 +108,4 @@ def findSubstring(s: str, words: list) -> list:
             if flag:
                 ret.append(i)
                 
-    return ret  
-    
+    return ret
