@@ -56,6 +56,8 @@ Solutions of Leetcode problems.
 
 	- #31 Next Permutation
 
+	- #33 Search in Rotated Sorted Array
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
