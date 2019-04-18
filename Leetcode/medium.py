@@ -316,6 +316,28 @@ def search(nums: list, target: int) -> int:
     
     return -1
 
+def searchRange(nums: list, target: int) -> list:
+    left = 0
+    right = len(nums) - 1
+    res = [-1, -1]
+    
+    while left <= right:
+        mid = round((left + right) / 2)
+        if nums[mid] == target:
+            cur_l = cur_r = mid
+            while cur_l > 0 and nums[cur_l - 1] == target:
+                cur_l -= 1
+            while cur_r < len(nums) - 1 and nums[cur_r + 1] == target:
+                cur_r += 1
+            res = [cur_l, cur_r]
+            break
+        elif nums[mid] > target:
+            right = mid - 1
+        else:
+            left = mid + 1
+            
+    return res
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
