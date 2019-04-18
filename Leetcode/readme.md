@@ -58,6 +58,8 @@ Solutions of Leetcode problems.
 
 	- #33 Search in Rotated Sorted Array
 
+	- #34 Find First and Last Position of Element in Sorted Array
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
