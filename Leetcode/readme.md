@@ -62,6 +62,8 @@ Solutions of Leetcode problems.
 
 	- #34 Find First and Last Position of Element in Sorted Array
 
+	- #36 Valid Sudoku
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
