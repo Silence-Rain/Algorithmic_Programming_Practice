@@ -339,36 +339,22 @@ def searchRange(nums: list, target: int) -> list:
     return res
 
 def isValidSudoku(board: list) -> bool:
-    for i in range(9):
-        row = {}
-        col = {}
-        box = {}
-        for j in range(9):
-            if board[i][j] == ".":
-                continue
-            elif board[i][j] not in row:
-                row[board[i][j]] = 1
-            else:
-                return False
-        for j in range(9):
-            if board[j][i] == ".":
-                continue
-            elif board[j][i] not in col:
-                col[board[j][i]] = 1
-            else:
-                return False
-        for j in range(3):
-            for k in range(3):
-                ind0 = j + int(i / 3) * 3
-                ind1 = k + (i % 3) * 3
-                if board[ind0][ind1] == ".":
-                    continue
-                elif board[ind0][ind1] not in box:
-                    box[board[ind0][ind1]] = 1
-                else:
-                    return False
+    rows = [{} for i in range(9)]
+    cols = [{} for i in range(9)]
+    boxes = [{} for i in range(9)]
     
-    return True         
+    for i in range(9):
+        for j in range(9):
+            elem = board[i][j]
+            if elem != ".":
+                if elem in rows[i] or elem in cols[j] or elem in boxes[3 * (i // 3) + j // 3]:
+                    return False
+                else:
+                    rows[i][elem] = 1
+                    cols[j][elem] = 1
+                    boxes[3 * (i // 3) + j // 3][elem] = 1
+    
+    return True    
 
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
