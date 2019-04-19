@@ -26,6 +26,8 @@ Solutions of Leetcode problems.
 
 	- #28 Implement strStr()
 
+	- #35 Search Insert Position
+
 	- #697 Degree of an Array
 
 - Medium
