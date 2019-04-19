@@ -147,6 +147,26 @@ def strStr(haystack: str, needle: str) -> int:
             return i
     return -1
 
+def searchInsert(nums: list, target: int) -> int:
+    left = 0
+    right = len(nums) - 1
+    
+    if target > nums[-1]:
+        return right + 1
+    if target < nums[0]:
+        return left
+    
+    while left <= right:
+        mid = round((left + right) / 2)
+        if nums[mid] == target:
+            return mid
+        elif mid < len(nums) - 1 and nums[mid] < target <= nums[mid + 1]:
+            return mid + 1
+        elif nums[mid] > target:
+            right = mid - 1
+        else:
+            left = mid + 1
+
 def findShortestSubArray(nums):
     m = {}
     for i,item in enumerate(nums):
