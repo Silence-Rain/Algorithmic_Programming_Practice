@@ -54,7 +54,7 @@ def isPalindrome_no_str(x: int) -> bool:
         
     return x == reverted or x == int(reverted / 10)
 
-def longestCommonPrefix(strs: List[str]) -> str:
+def longestCommonPrefix(strs: list) -> str:
     ind = 0
     n = len(strs)
     
@@ -167,6 +167,25 @@ def searchInsert(nums: list, target: int) -> int:
         else:
             left = mid + 1
 
+def countAndSay(n: int) -> str:
+    if n == 1:
+        return "1"
+    
+    prev = countAndSay(n - 1)
+    ret = ""
+    i = 0
+    j = 0
+    while i + j < len(prev):
+        if prev[i] == prev[i + j]:
+            j += 1
+        else:
+            ret += "%s%s" % (j, prev[i])
+            i = i + j
+            j = 0
+    ret += "%s%s" % (j, prev[i])
+    
+    return ret
+
 def findShortestSubArray(nums):
     m = {}
     for i,item in enumerate(nums):
@@ -183,4 +202,3 @@ def findShortestSubArray(nums):
 
     return cur[2] - cur[1] + 1
 
-    
