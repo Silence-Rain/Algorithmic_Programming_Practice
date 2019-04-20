@@ -28,6 +28,8 @@ Solutions of Leetcode problems.
 
 	- #35 Search Insert Position
 
+	- #38 Count and Say
+
 	- #697 Degree of an Array
 
 - Medium
