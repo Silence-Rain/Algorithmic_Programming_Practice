@@ -173,16 +173,13 @@ def countAndSay(n: int) -> str:
     
     prev = countAndSay(n - 1)
     ret = ""
-    i = 0
-    j = 0
-    while i + j < len(prev):
-        if prev[i] == prev[i + j]:
-            j += 1
-        else:
-            ret += "%s%s" % (j, prev[i])
-            i = i + j
-            j = 0
-    ret += "%s%s" % (j, prev[i])
+    c = 0
+    for i in range(len(prev)):
+        c += 1
+        
+        if i + 1 == len(prev) or prev[i] != prev[i + 1]:
+            ret += "%s%s" % (c, prev[i])
+            c = 0
     
     return ret
 
