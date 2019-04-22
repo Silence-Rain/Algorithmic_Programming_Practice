@@ -109,3 +109,18 @@ def findSubstring(s: str, words: list) -> list:
                 ret.append(i)
                 
     return ret
+
+def firstMissingPositive(nums: list) -> int:
+        n = len(nums)
+        flags = [False for _ in range(n + 1)]
+        
+        for i in range(n):
+            if nums[i] > n:
+                continue
+            if nums[i] > 0:
+                flags[nums[i] - 1] = True
+                
+        for i in range(len(flags)):
+            if flags[i] == False:
+                return i + 1
+
