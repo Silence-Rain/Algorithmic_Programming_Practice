@@ -88,5 +88,7 @@ Solutions of Leetcode problems.
 
 	- #30 Substring with Concatenation of All Words
 
+	- #41 First Missing Positive
+
 
 	
