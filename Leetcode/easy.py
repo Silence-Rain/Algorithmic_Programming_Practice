@@ -185,8 +185,11 @@ def countAndSay(n: int) -> str:
     
     return ret
 
-def lengthOfLastWord(s: str) -> int:
+def lengthOfLastWord_regexp(s: str) -> int:
     return len(re.search(r"([a-zA-Z] )*([a-zA-Z]+)[ ]*$", s).group(2)) if len(s.strip()) else 0
+
+def lengthOfLastWord_split(s: str) -> int:
+    return len(s.strip().split(" ")[-1])
 
 def findShortestSubArray(nums):
     m = {}
