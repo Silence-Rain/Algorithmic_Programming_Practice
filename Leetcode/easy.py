@@ -1,3 +1,5 @@
+import re
+
 class ListNode:
     def __init__(self, x):
         self.val = x
@@ -182,6 +184,9 @@ def countAndSay(n: int) -> str:
             c = 0
     
     return ret
+
+def lengthOfLastWord(s: str) -> int:
+    return len(re.search(r"([a-zA-Z] )*([a-zA-Z]+)[ ]*$", s).group(2)) if len(s.strip()) else 0
 
 def findShortestSubArray(nums):
     m = {}
