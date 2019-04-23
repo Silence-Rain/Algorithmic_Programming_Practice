@@ -30,6 +30,8 @@ Solutions of Leetcode problems.
 
 	- #38 Count and Say
 
+	- #58 Length of Last Word
+
 	- #697 Degree of an Array
 
 - Medium
