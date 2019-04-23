@@ -30,7 +30,7 @@ Solutions of Leetcode problems.
 
 	- #38 Count and Say
 
-	- #58 Length of Last Word
+	- #58 Length of Last Word (regexp & split())
 
 	- #697 Degree of an Array
 
