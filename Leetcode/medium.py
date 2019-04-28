@@ -356,6 +356,18 @@ def isValidSudoku(board: list) -> bool:
     
     return True    
 
+def permute(nums: list) -> list:
+    if len(nums) <= 1:
+        return [nums]
+    
+    res = []
+    temp = self.permute(nums[1:])
+    for item in temp:
+        for i in range(len(item) + 1):
+            res.append(item[:i] + [nums[0]] + item[i:])
+    
+    return res
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
