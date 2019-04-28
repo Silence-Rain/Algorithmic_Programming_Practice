@@ -68,6 +68,8 @@ Solutions of Leetcode problems.
 
 	- #36 Valid Sudoku
 
+	- #46 Permutations
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
