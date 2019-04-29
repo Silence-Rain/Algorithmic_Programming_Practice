@@ -368,6 +368,16 @@ def permute(nums: list) -> list:
     
     return res
 
+def rotate(matrix: list) -> None:
+    n = len(matrix)
+    for i in range(math.ceil(n/2)):
+        for j in range(math.floor(n/2)):
+            temp = matrix[i][j]
+            matrix[i][j] = matrix[n - 1 - j][i]
+            matrix[n - 1 - j][i] = matrix[n - 1 - i][n - 1 - j]
+            matrix[n - 1 - i][n - 1 - j] = matrix[j][n - 1 - i] 
+            matrix[j][n - 1 - i] = temp
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
