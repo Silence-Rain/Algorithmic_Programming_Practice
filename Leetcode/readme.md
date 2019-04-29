@@ -70,6 +70,8 @@ Solutions of Leetcode problems.
 
 	- #46 Permutations
 
+	- #48 Rotate Image
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
