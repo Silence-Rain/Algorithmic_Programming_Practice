@@ -385,21 +385,19 @@ def rotate(matrix: list) -> None:
             matrix[j][i] = temp
 
 def spiralOrder(matrix: list) -> list:
-    try:
-        m = len(matrix)
-        n = len(matrix[0])
-    except IndexError as e:
+    if not matrix:
         return []
-    cnt = math.ceil(min(m, n) / 2)
+    m = len(matrix)
+    n = len(matrix[0])
+    cnt = min(m, n) // 2 + 1 if min(m, n) % 2 else min(m, n) // 2
     ret = []
     
     for i in range(cnt):
         ret.extend(matrix[i][i:n - i])
         for j in range(i + 1, m - i):
             ret.append(matrix[j][n - i - 1])
-        if i + 1 != m - i:
+        if i + 1 != m - i and i + 1 != n - i:
             ret.extend(matrix[m - i - 1][i:n - i - 1][::-1])
-        if i + 1 != n - i:
             for j in range(m - i - 2, i, -1):
                 ret.append(matrix[j][i])
 
