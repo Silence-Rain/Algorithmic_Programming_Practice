@@ -72,6 +72,8 @@ Solutions of Leetcode problems.
 
 	- #48 Rotate Image
 
+	- #54 Spiral Matrix
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
