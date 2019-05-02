@@ -74,6 +74,8 @@ Solutions of Leetcode problems.
 
 	- #54 Spiral Matrix
 
+	- #56 Merge Intervals
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
