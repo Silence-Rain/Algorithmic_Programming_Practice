@@ -417,6 +417,35 @@ def merge(intervals: list) -> list:
     
     return ret
 
+def generateMatrix(n: int) -> list:
+    def indexGenerator(lens, rounds):
+        if lens == 1:
+            yield rounds, rounds
+        else:
+            for i in range(lens):
+                yield rounds, rounds + i
+            for i in range(1, lens):
+                yield rounds + i, rounds + lens - 1
+            for i in range(1, lens):
+                yield rounds + lens - 1, rounds + lens - 1 - i
+            for i in range(1, lens - 1):
+                yield rounds + lens - 1 - i, rounds
+            
+    if not n:
+        return []
+    
+    ret = [[0 for _ in range(n)] for _ in range(n)] 
+    total_rounds = (n + 1) // 2
+    cnt = 1
+    
+    for r in range(total_rounds):
+        l = n - 2 * r
+        for i, j in indexGenerator(l, r):
+            ret[i][j] = cnt
+            cnt += 1
+    
+    return ret
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
