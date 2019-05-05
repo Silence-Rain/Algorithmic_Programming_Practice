@@ -140,27 +140,27 @@ def intToRoman(num: int) -> str:
     return "".join(ret)
 
 def romanToInt(s: str) -> int:
-        mapping = {
-            "I": 1,
-            "V": 5,
-            "X": 10,
-            "L": 50,
-            "C": 100,
-            "D": 500,
-            "M": 1000
-        }
-        ret = 0
-        n = len(s)
-        
-        for i in range(n - 1):
-            cur = mapping[s[i]]
-            next = mapping[s[i + 1]]
-            if cur >= next:
-                ret += cur
-            else:
-                ret -= cur
-                
-        return ret + mapping[s[n - 1]]
+    mapping = {
+        "I": 1,
+        "V": 5,
+        "X": 10,
+        "L": 50,
+        "C": 100,
+        "D": 500,
+        "M": 1000
+    }
+    ret = 0
+    n = len(s)
+    
+    for i in range(n - 1):
+        cur = mapping[s[i]]
+        next = mapping[s[i + 1]]
+        if cur >= next:
+            ret += cur
+        else:
+            ret -= cur
+            
+    return ret + mapping[s[n - 1]]
 
 def threeSum(nums: list) -> list:
     res = []
@@ -442,6 +442,34 @@ def generateMatrix(n: int) -> list:
         cnt += 1
     
     return ret
+
+def rotateRight(head: ListNode, k: int) -> ListNode:
+    if not head or not head.next or not k:
+        return head
+    
+    tail = head
+    n = 1
+    while tail.next:
+        tail = tail.next
+        n += 1
+        
+    diff = k % n
+    if not diff:
+        return head
+    else:
+        p = head
+        for i in range(n - diff - 1):
+            p = p.next
+
+        last = p
+        p = p.next
+        last.next = None
+        ret = p
+        while p.next:
+            p = p.next
+        p.next = head
+
+        return ret
 
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
