@@ -78,6 +78,8 @@ Solutions of Leetcode problems.
 
 	- #59 Spiral Matrix II
 
+	- #61 Rotate List
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
