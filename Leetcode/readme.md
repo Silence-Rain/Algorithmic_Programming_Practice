@@ -32,6 +32,8 @@ Solutions of Leetcode problems.
 
 	- #58 Length of Last Word (regexp & split())
 
+	- #66 Plus One
+
 	- #697 Degree of an Array
 
 - Medium
