@@ -191,6 +191,17 @@ def lengthOfLastWord_regexp(s: str) -> int:
 def lengthOfLastWord_split(s: str) -> int:
     return len(s.strip().split(" ")[-1])
 
+def plusOne(digits: list) -> list:
+    for i in range(len(digits) - 1, -1, -1):
+        digits[i] += 1
+        if digits[i] != 10:
+            break
+        else:
+            digits[i] = 0
+    if not digits[0]:
+        digits.insert(0, 1)
+    return digits
+
 def findShortestSubArray(nums):
     m = {}
     for i,item in enumerate(nums):
