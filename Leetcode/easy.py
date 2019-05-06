@@ -192,6 +192,7 @@ def lengthOfLastWord_split(s: str) -> int:
     return len(s.strip().split(" ")[-1])
 
 def plusOne(digits: list) -> list:
+    # return [int(i) for i in str(int("".join(map(str, digits))) + 1)]
     for i in range(len(digits) - 1, -1, -1):
         digits[i] += 1
         if digits[i] != 10:
