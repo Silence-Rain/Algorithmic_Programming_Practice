@@ -203,6 +203,23 @@ def plusOne(digits: list) -> list:
         digits.insert(0, 1)
     return digits
 
+def addBinary(a: str, b: str) -> str:
+    la, lb = len(a), len(b)
+    if la > lb:
+        b = "0" * (la - lb) + b
+    elif la < lb:
+        a = "0" * (lb - la) + a
+        
+    res = ""
+    carry = 0
+    for i in range(max(la, lb) - 1, -1, -1):
+        temp_sum = int(a[i]) ^ int(b[i])
+        temp_carry = int(a[i]) & int(b[i])
+        res = str(temp_sum ^ carry) + res
+        carry = (temp_sum & carry) | temp_carry
+    
+    return res if not carry else "1" + res
+
 def findShortestSubArray(nums):
     m = {}
     for i,item in enumerate(nums):
