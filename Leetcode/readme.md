@@ -34,6 +34,8 @@ Solutions of Leetcode problems.
 
 	- #66 Plus One
 
+	- #67 Add Binary
+
 	- #697 Degree of an Array
 
 - Medium
