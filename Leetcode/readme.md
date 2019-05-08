@@ -36,6 +36,8 @@ Solutions of Leetcode problems.
 
 	- #67 Add Binary
 
+	- #69 Sqrt(x)
+
 	- #697 Degree of an Array
 
 - Medium
