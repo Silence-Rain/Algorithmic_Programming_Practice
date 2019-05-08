@@ -110,4 +110,6 @@ Solutions of Leetcode problems.
 
 	- #57 Insert Interval
 
+	- #65 Valid Number
+
 	
