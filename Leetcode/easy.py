@@ -221,19 +221,10 @@ def addBinary(a: str, b: str) -> str:
     return res if not carry else "1" + res
 
 def mySqrt(x: int) -> int:
-    if not x:
-        return 0
-    dat = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-    n = len(str(x))
-    e = 10 ** ((n - 1) // 2)
-    e_sqr = e ** 2
-    for i in range(1, len(dat) - 1):
-        if dat[i] * e_sqr <= x < dat[i + 1] * e_sqr:
-            break
-    start = i * e
-    while start ** 2 <= x:
-        start += 1
-    return start - 1
+    r = x
+    while r * r > x:
+        r = (r + x / r) // 2
+    return int(r)
 
 def findShortestSubArray(nums):
     m = {}
