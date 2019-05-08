@@ -139,4 +139,55 @@ def insert(intervals: list, newInterval: list) -> list:
     
     return left + [[start, end]] + right
 
+def isNumber(s: str) -> bool:
+    def isSign(s):
+        return s == '+' or s == '-'
+    
+    def isUnsignedInt(s):
+        if not len(s):
+            return False
+        
+        for i in s:
+            if ord(i) < 48 or ord(i) > 57:
+                return False
+        return True
+    
+    def isSignedInt(s):
+        if not len(s):
+            return False
+        s = s[1:] if isSign(s[0]) else s
+        
+        return isUnsignedInt(s)
+    
+    def isDecimals(s):
+        if not len(s):
+            return False
+        s_dot = s.split('.')
+        
+        if len(s_dot) > 2:
+            return False
+        if len(s_dot) == 1:
+            return isSignedInt(s)
+        
+        if len(s_dot[0]):
+            if len(s_dot[1]):
+                return (isSignedInt(s_dot[0]) or isSign(s_dot[0])) and isUnsignedInt(s_dot[1])
+            else:
+                return isSignedInt(s_dot[0])
+        else:
+            if len(s_dot[1]):
+                return isUnsignedInt(s_dot[1])
+            else:
+                return False
+    
+    s = s.strip()
+    s_e = s.split('e')
+    
+    if len(s_e) > 2:
+        return False
+    if len(s_e) == 1:
+        return isDecimals(s)
+    
+    return isDecimals(s_e[0]) and isSignedInt(s_e[1])
+        
 
