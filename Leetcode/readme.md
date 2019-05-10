@@ -86,6 +86,8 @@ Solutions of Leetcode problems.
 
 	- #61 Rotate List
 
+	- #71 Simplify Path
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
