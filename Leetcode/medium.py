@@ -471,6 +471,19 @@ def rotateRight(head: ListNode, k: int) -> ListNode:
 
         return ret
 
+def simplifyPath(path: str) -> str:
+    dirs = path.split('/')
+    stack = []
+    for i in range(1, len(dirs)):
+        if dirs[i] == ".." and len(stack):
+            stack.pop()
+        elif not len(dirs[i]) or dirs[i] == "." or (dirs[i] == ".." and not len(stack)):
+            pass
+        else:
+            stack.append(dirs[i])
+
+    return "/" + "/".join(stack)
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
