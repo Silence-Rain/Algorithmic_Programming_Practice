@@ -484,6 +484,48 @@ def simplifyPath(path: str) -> str:
 
     return "/" + "/".join(stack)
 
+def searchMatrix(matrix: list, target: int) -> bool:
+    if not matrix or not matrix[0]:
+        return False
+    
+    m, n = len(matrix), len(matrix[0])
+    rl, rh = 0, m - 1
+    cl, ch = 0, n - 1
+    targetRow = -1
+    
+    while rl <= rh:
+        rmid = (rl + rh) // 2
+        if matrix[rmid][0] == target:
+            return True
+        elif matrix[rmid][0] > target:
+            if not rmid:
+                return False
+            elif target > matrix[rmid - 1][0]:
+                targetRow = rmid - 1
+                break
+            else:
+                rh = rmid - 1
+        else:
+            if rmid == m - 1:
+                targetRow = m - 1
+                break
+            elif target < matrix[rmid + 1][0]:
+                targetRow = rmid
+                break
+            else:
+                rl = rmid + 1
+    
+    while cl <= ch:
+        cmid = (cl + ch) // 2
+        if matrix[targetRow][cmid] == target:
+            return True
+        elif matrix[targetRow][cmid] > target:
+            ch = cmid - 1
+        else:
+            cl = cmid + 1
+    
+    return False
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
