@@ -88,6 +88,8 @@ Solutions of Leetcode problems.
 
 	- #71 Simplify Path
 
+	- #74 Search a 2D Matrix
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
