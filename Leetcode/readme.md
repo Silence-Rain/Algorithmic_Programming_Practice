@@ -38,6 +38,8 @@ Solutions of Leetcode problems.
 
 	- #69 Sqrt(x)
 
+	- #83 Remove Duplicates from Sorted List
+
 	- #697 Degree of an Array
 
 - Medium
