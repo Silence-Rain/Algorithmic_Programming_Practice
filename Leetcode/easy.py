@@ -226,6 +226,21 @@ def mySqrt(x: int) -> int:
         r = (r + x / r) // 2
     return int(r)
 
+def deleteDuplicates(head: ListNode) -> ListNode:
+    if not head:
+        return None
+    
+    last = head
+    p = head.next
+    while p:
+        if p.val == last.val:
+            last.next = p.next
+        else:
+            last = p
+        p = p.next
+            
+    return head
+
 def findShortestSubArray(nums):
     m = {}
     for i,item in enumerate(nums):
