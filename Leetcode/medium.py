@@ -526,6 +526,34 @@ def searchMatrix(matrix: list, target: int) -> bool:
     
     return False
 
+def deleteDuplicates(head: ListNode) -> ListNode:
+    if not head:
+        return None
+    
+    res = set()
+    last = head
+    p = head.next
+    while p:
+        if p.val == last.val:
+            last.next = p.next
+            res.add(p.val)
+        else:
+            last = p
+        p = p.next
+    
+    dummy = ListNode(0)
+    dummy.next = head
+    last = dummy
+    p = head
+    while p:
+        if p.val in res:
+            last.next = p.next
+        else:
+            last = last.next
+        p = p.next
+        
+    return dummy.next
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
