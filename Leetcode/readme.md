@@ -92,6 +92,8 @@ Solutions of Leetcode problems.
 
 	- #74 Search a 2D Matrix
 
+	- #82 Remove Duplicates from Sorted List II
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
