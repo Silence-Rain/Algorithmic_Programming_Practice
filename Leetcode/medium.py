@@ -554,6 +554,17 @@ def deleteDuplicates(head: ListNode) -> ListNode:
         
     return dummy.next
 
+def inorderTraversal(root: TreeNode) -> list:
+    if not root:
+        return []
+    
+    res = []
+    res += inorderTraversal(root.left)
+    res.append(root.val)
+    res += inorderTraversal(root.right)
+    
+    return res
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
