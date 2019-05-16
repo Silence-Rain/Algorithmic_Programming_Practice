@@ -40,6 +40,8 @@ Solutions of Leetcode problems.
 
 	- #83 Remove Duplicates from Sorted List
 
+	- #100 Same Tree
+
 	- #697 Degree of an Array
 
 - Medium
