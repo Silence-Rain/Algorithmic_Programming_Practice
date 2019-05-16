@@ -5,6 +5,12 @@ class ListNode:
         self.val = x
         self.next = None
 
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
 def twosum(nums, target):
     dic = {}
     for i, item in enumerate(nums):
@@ -240,6 +246,16 @@ def deleteDuplicates(head: ListNode) -> ListNode:
         p = p.next
             
     return head
+
+def isSameTree(p: TreeNode, q: TreeNode) -> bool:
+    if not p and not q:
+        return True
+    elif not p or not q:
+        return False
+    elif p.val == q.val:
+        return isSameTree(p.left, q.left) and isSameTree(p.right, q.right)
+    else:
+        return False
 
 def findShortestSubArray(nums):
     m = {}

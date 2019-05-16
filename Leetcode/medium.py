@@ -7,6 +7,12 @@ class ListNode:
         self.val = x
         self.next = None
 
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
 def addTwoNumbers(l1: ListNode, l2: ListNode) -> ListNode:
     carry = 0 
     head = ListNode(0)
