@@ -257,6 +257,15 @@ def isSameTree(p: TreeNode, q: TreeNode) -> bool:
     else:
         return False
 
+def isSymmetric(root: TreeNode) -> bool:
+    def helper(l, r):
+        if not l or not r:
+            return l == r
+        return l.val == r.val and helper(l.left, r.right) and helper(l.right, r.left)
+    
+    if not root:
+        return True
+
 def findShortestSubArray(nums):
     m = {}
     for i,item in enumerate(nums):
