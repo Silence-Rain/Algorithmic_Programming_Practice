@@ -42,6 +42,8 @@ Solutions of Leetcode problems.
 
 	- #100 Same Tree
 
+	- #101 Symmetric Tree
+
 	- #697 Degree of an Array
 
 - Medium
