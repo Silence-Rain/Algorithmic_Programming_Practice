@@ -571,6 +571,24 @@ def inorderTraversal(root: TreeNode) -> list:
     
     return res
 
+def levelOrder(root: TreeNode) -> list:
+    if not root:
+        return []
+
+    q = [(root, 0)]
+    res = []
+    while q:
+        node, level = q.pop(0)
+        if node:
+            if len(res) < level + 1:
+                res.append([node.val])
+            else:
+                res[level].append(node.val)
+            q.append((node.left, level + 1))
+            q.append((node.right, level + 1))
+    
+    return res
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
