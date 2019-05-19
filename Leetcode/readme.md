@@ -44,6 +44,8 @@ Solutions of Leetcode problems.
 
 	- #101 Symmetric Tree
 
+	- #104 Maximum Depth of Binary Tree
+
 	- #697 Degree of an Array
 
 - Medium
