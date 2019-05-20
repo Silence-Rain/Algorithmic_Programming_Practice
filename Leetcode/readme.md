@@ -48,6 +48,8 @@ Solutions of Leetcode problems.
 
 	- #111 Minimum Depth of Binary Tree
 
+	- #118 Pascal's Triangle
+
 	- #697 Degree of an Array
 
 - Medium
