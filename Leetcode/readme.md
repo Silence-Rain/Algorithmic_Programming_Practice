@@ -46,6 +46,8 @@ Solutions of Leetcode problems.
 
 	- #104 Maximum Depth of Binary Tree
 
+	- #111 Minimum Depth of Binary Tree
+
 	- #697 Degree of an Array
 
 - Medium
