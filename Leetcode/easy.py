@@ -271,6 +271,16 @@ def maxDepth(root: TreeNode) -> int:
         return 0
     return 1 + max(maxDepth(root.left), maxDepth(root.right))
 
+def minDepth(root: TreeNode) -> int:
+    if not root:
+        return 0
+    if not root.left and not root.right:
+        return 1
+
+    minL = minDepth(root.left) if root.left else float("inf")
+    minR = minDepth(root.right) if root.right else float("inf")
+    return 1 + min(minL, minR)
+
 def findShortestSubArray(nums):
     m = {}
     for i,item in enumerate(nums):
