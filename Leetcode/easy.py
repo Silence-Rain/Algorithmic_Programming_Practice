@@ -281,6 +281,19 @@ def minDepth(root: TreeNode) -> int:
     minR = minDepth(root.right) if root.right else float("inf")
     return 1 + min(minL, minR)
 
+def generate(numRows: int) -> list:
+    if not numRows:
+        return []
+
+    res = [[1]]
+    for i in range(1, numRows):
+        temp = [1]
+        for j in range(i - 1):
+            temp.append(res[i - 1][j] + res[i - 1][j + 1])
+        res.append(temp + [1])
+
+    return res
+
 def findShortestSubArray(nums):
     m = {}
     for i,item in enumerate(nums):
