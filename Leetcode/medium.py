@@ -589,6 +589,38 @@ def levelOrder(root: TreeNode) -> list:
     
     return res
 
+def zigzagLevelOrder(root: TreeNode) -> list:
+    if not root:
+        return []
+
+    q = [(root, 0)]
+    res = []
+    flag = True
+    while q:
+        for i in range(len(q)):
+            if flag:
+                node, level = q.pop(0)
+                if node:
+                    if len(res) < level + 1:
+                        res.append([node.val])
+                    else:
+                        res[level].append(node.val)
+                    q.append((node.left, level + 1))
+                    q.append((node.right, level + 1))
+            else:
+                node, level = q.pop()
+                if node:
+                    if len(res) < level + 1:
+                        res.append([node.val])
+                    else:
+                        res[level].append(node.val)
+                    q.insert(0, (node.right, level + 1))
+                    q.insert(0, (node.left, level + 1))
+        
+        flag = not flag
+   
+    return res
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
