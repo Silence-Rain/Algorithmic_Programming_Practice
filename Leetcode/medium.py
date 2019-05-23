@@ -621,6 +621,18 @@ def zigzagLevelOrder(root: TreeNode) -> list:
    
     return res
 
+def buildTree(preorder: list, inorder: list) -> TreeNode:
+    if not preorder:
+        return None
+
+    root_val = preorder.pop(0)
+    root = TreeNode(root_val)
+    ind = inorder.index(root_val)
+    root.left = buildTree(preorder[:ind], inorder[:ind])
+    root.right = buildTree(preorder[ind:], inorder[ind + 1:])
+    
+    return root
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
