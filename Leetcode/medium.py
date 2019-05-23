@@ -633,6 +633,18 @@ def buildTree(preorder: list, inorder: list) -> TreeNode:
     
     return root
 
+ def buildTree(inorder: list, postorder: list) -> TreeNode:
+    if not postorder:
+        return None
+        
+    root_val = postorder.pop()
+    root = TreeNode(root_val)
+    ind = inorder.index(root_val)
+    root.left = buildTree(inorder[:ind], postorder[:ind])
+    root.right = buildTree(inorder[ind + 1:], postorder[ind:])
+    
+    return root
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
