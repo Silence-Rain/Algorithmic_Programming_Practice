@@ -110,6 +110,8 @@ Solutions of Leetcode problems.
 
 	- #103 Binary Tree Zigzag Level Order Traversal
 
+	- #105 Construct Binary Tree from Preorder and Inorder Traversal
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
