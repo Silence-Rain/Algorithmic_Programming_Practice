@@ -271,6 +271,18 @@ def maxDepth(root: TreeNode) -> int:
         return 0
     return 1 + max(maxDepth(root.left), maxDepth(root.right))
 
+def sortedArrayToBST(nums: list) -> TreeNode:
+    n = len(nums)
+    if not n:
+        return None
+    
+    mid = n // 2
+    root = TreeNode(nums[mid])
+    root.left = sortedArrayToBST(nums[:mid])
+    root.right = sortedArrayToBST(nums[mid + 1:])
+    
+    return root
+
 def minDepth(root: TreeNode) -> int:
     if not root:
         return 0
