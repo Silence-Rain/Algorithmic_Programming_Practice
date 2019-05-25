@@ -306,6 +306,17 @@ def generate(numRows: int) -> list:
 
     return res
 
+def getRow(rowIndex: int) -> list:
+    cur = [1]
+    for _ in range(rowIndex):
+        res = [1]
+        for i in range(len(cur) - 1):
+            res.append(cur[i] + cur[i + 1])
+        res.append(1)
+        cur = res
+    
+    return cur
+
 def findShortestSubArray(nums):
     m = {}
     for i,item in enumerate(nums):
