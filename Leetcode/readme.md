@@ -52,6 +52,8 @@ Solutions of Leetcode problems.
 
 	- #118 Pascal's Triangle
 
+	- #119 Pascal's Triangle II
+
 	- #697 Degree of an Array
 
 - Medium
