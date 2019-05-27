@@ -283,6 +283,16 @@ def sortedArrayToBST(nums: list) -> TreeNode:
     
     return root
 
+def isBalanced(root: TreeNode) -> bool:
+    def depth(r):
+        if not r:
+            return 0
+        return 1 + max(depth(r.left), depth(r.right))
+
+    if not root:
+        return True
+    return abs(depth(root.left) - depth(root.right)) <= 1 and isBalanced(root.left) and isBalanced(root.right)
+
 def minDepth(root: TreeNode) -> int:
     if not root:
         return 0
