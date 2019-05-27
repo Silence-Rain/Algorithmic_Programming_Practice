@@ -48,11 +48,15 @@ Solutions of Leetcode problems.
 
 	- #108 Convert Sorted Array to Binary Search Tree
 
+	- #110 Balanced Binary Tree
+
 	- #111 Minimum Depth of Binary Tree
 
 	- #118 Pascal's Triangle
 
 	- #119 Pascal's Triangle II
+
+	- #125 Valid Palindrome
 
 	- #697 Degree of an Array
 
