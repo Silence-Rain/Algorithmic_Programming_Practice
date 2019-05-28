@@ -645,6 +645,27 @@ def buildTree(preorder: list, inorder: list) -> TreeNode:
     
     return root
 
+def sortedListToBST(head: ListNode) -> TreeNode:
+    if not head:
+        return None
+    if not head.next:
+        return TreeNode(head.val)
+    
+    pfast = head
+    pslow = head
+    pre = None
+    while pfast and pfast.next:
+        pre = pslow
+        pfast = pfast.next.next
+        pslow = pslow.next
+    
+    pre.next = None
+    root = TreeNode(pslow.val)
+    root.left = sortedListToBST(head)
+    root.right = sortedListToBST(pslow.next)
+    
+    return root
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
