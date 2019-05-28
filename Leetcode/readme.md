@@ -122,6 +122,8 @@ Solutions of Leetcode problems.
 
 	- #106 Construct Binary Tree from Inorder and Postorder Traversal
 
+	- #109 Convert Sorted List to Binary Search Tree
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
