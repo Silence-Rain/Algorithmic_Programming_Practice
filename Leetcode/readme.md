@@ -124,6 +124,8 @@ Solutions of Leetcode problems.
 
 	- #109 Convert Sorted List to Binary Search Tree
 
+	- #116 Populating Next Right Pointers in Each Node
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
