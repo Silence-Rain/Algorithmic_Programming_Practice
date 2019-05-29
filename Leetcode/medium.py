@@ -13,6 +13,13 @@ class TreeNode:
         self.left = None
         self.right = None
 
+class Node:
+    def __init__(self, val, left, right, next):
+        self.val = val
+        self.left = left
+        self.right = right
+        self.next = next
+
 def addTwoNumbers(l1: ListNode, l2: ListNode) -> ListNode:
     carry = 0 
     head = ListNode(0)
@@ -664,6 +671,17 @@ def sortedListToBST(head: ListNode) -> TreeNode:
     root.left = sortedListToBST(head)
     root.right = sortedListToBST(pslow.next)
     
+    return root
+
+def connect(self, root: 'Node') -> 'Node':
+    q = [(root, 0)]
+    while q:
+        node, level = q.pop(0)
+        if node:
+            if q and q[0] and level == q[0][1]:
+                node.next = q[0][0]
+            q.append((node.left, level + 1))
+            q.append((node.right, level + 1))
     return root
 
 def findKthLargest(nums, k):
