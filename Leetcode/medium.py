@@ -674,14 +674,17 @@ def sortedListToBST(head: ListNode) -> TreeNode:
     return root
 
 def connect(self, root: 'Node') -> 'Node':
-    q = [(root, 0)]
-    while q:
-        node, level = q.pop(0)
-        if node:
-            if q and q[0] and level == q[0][1]:
-                node.next = q[0][0]
-            q.append((node.left, level + 1))
-            q.append((node.right, level + 1))
+    if not root:
+        return None
+    cur = root
+    while cur.left:
+        next = cur.left
+        while cur:
+            cur.left.next = cur.right
+            if cur.next:
+                cur.right.next = cur.next.left
+            cur = cur.next
+        cur = next
     return root
 
 def findKthLargest(nums, k):
