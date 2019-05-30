@@ -676,6 +676,7 @@ def sortedListToBST(head: ListNode) -> TreeNode:
 def connect(self, root: 'Node') -> 'Node':
     if not root:
         return None
+
     cur = root
     while cur.left:
         next = cur.left
@@ -684,7 +685,35 @@ def connect(self, root: 'Node') -> 'Node':
             if cur.next:
                 cur.right.next = cur.next.left
             cur = cur.next
+
         cur = next
+        
+    return root
+
+def connect(self, root: 'Node') -> 'Node':
+    cur, head, tail = root, None, None
+
+    while cur:
+        while cur:
+            if cur.left:
+                if not head:
+                    head = cur.left
+                    tail = head
+                else:
+                    tail.next = cur.left
+                    tail = tail.next
+            if cur.right:
+                if not head:
+                    head = cur.right
+                    tail = head
+                else:
+                    tail.next = cur.right
+                    tail = tail.next
+            cur = cur.next
+
+        cur = head
+        head, tail = None, None
+
     return root
 
 def findKthLargest(nums, k):
