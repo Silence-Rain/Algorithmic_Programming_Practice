@@ -687,7 +687,7 @@ def connect(self, root: 'Node') -> 'Node':
             cur = cur.next
 
         cur = next
-        
+
     return root
 
 def connect(self, root: 'Node') -> 'Node':
@@ -709,6 +709,7 @@ def connect(self, root: 'Node') -> 'Node':
                 else:
                     tail.next = cur.right
                     tail = tail.next
+                    
             cur = cur.next
 
         cur = head
