@@ -342,6 +342,12 @@ def isPalindrome(s: str) -> bool:
 
     return True
 
+def singleNumber(nums: list) -> int:
+    res = 0
+    for i in nums:
+        res ^= i
+    return res
+
 def findShortestSubArray(nums):
     m = {}
     for i,item in enumerate(nums):
