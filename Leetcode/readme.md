@@ -58,6 +58,8 @@ Solutions of Leetcode problems.
 
 	- #125 Valid Palindrome
 
+	- #136 Single Number
+
 	- #697 Degree of an Array
 
 - Medium
