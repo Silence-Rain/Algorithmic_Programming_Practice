@@ -130,6 +130,8 @@ Solutions of Leetcode problems.
 
 	- #117 Populating Next Right Pointers in Each Node II
 
+	- #129 Sum Root to Leaf Numbers
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
