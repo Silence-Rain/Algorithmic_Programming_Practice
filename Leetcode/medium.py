@@ -717,6 +717,25 @@ def connect(self, root: 'Node') -> 'Node':
 
     return root
 
+def sumNumbers(root: TreeNode) -> int:
+    def dfs(node):
+        if not node:
+            return []
+        res = dfs(node.left)
+        res += dfs(node.right)
+        if res:
+            ret = ["%s%s" % (node.val, i) for i in res]
+        else:
+            ret = [str(node.val)]
+        
+        return ret
+
+    paths = dfs(root)
+    s = 0
+    for item in paths:
+        s += int(item)
+    return s
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
