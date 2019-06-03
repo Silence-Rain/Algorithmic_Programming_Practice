@@ -304,19 +304,24 @@ def minDepth(root: TreeNode) -> int:
     return 1 + min(minL, minR)
 
 def hasPathSum(root: TreeNode, sum: int) -> bool:
-    def dfs(node):
-        if not node:
-            return []
-        res = dfs(node.left)
-        res += dfs(node.right)
-        if res:
-            return [node.val + i for i in res]
-        else:
-            return [node.val]
+    # def dfs(node):
+    #     if not node:
+    #         return []
+    #     res = dfs(node.left)
+    #     res += dfs(node.right)
+    #     if res:
+    #         return [node.val + i for i in res]
+    #     else:
+    #         return [node.val]
     
-    all_sum = dfs(root)
-    return sum in all_sum
-    
+    # all_sum = dfs(root)
+    # return sum in all_sum
+    if not root:
+        return False
+    if not root.left and not root.right and root.val == sum:
+        return True
+    return hasPathSum(root.left, sum - root.val) or hasPathSum(root.right, sum - root.val)
+
 def generate(numRows: int) -> list:
     if not numRows:
         return []
