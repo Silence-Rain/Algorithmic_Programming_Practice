@@ -673,6 +673,29 @@ def sortedListToBST(head: ListNode) -> TreeNode:
     
     return root
 
+def pathSum(root: TreeNode, sum: int) -> list:
+    def dfs(node):
+        if not node:
+            return []
+        res = dfs(node.left)
+        res += dfs(node.right)
+        if res:
+            res = [[node.val] + i for i in res]
+        else:
+            res = [[node.val]]
+        return res
+    
+    all_paths = dfs(root)
+    ret = []
+    for i in all_paths:
+        s = 0
+        for j in i:
+            s += j
+        if s == sum:
+            ret.append(i)
+    
+    return ret
+
 def connect(self, root: 'Node') -> 'Node':
     if not root:
         return None
