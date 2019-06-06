@@ -136,6 +136,8 @@ Solutions of Leetcode problems.
 
 	- #129 Sum Root to Leaf Numbers
 
+	- #137 Single Numbers II
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
