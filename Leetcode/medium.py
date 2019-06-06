@@ -696,7 +696,7 @@ def pathSum(root: TreeNode, sum: int) -> list:
     
     return ret
 
-def connect(self, root: 'Node') -> 'Node':
+def connect(root: 'Node') -> 'Node':
     if not root:
         return None
 
@@ -713,7 +713,7 @@ def connect(self, root: 'Node') -> 'Node':
 
     return root
 
-def connect(self, root: 'Node') -> 'Node':
+def connect(root: 'Node') -> 'Node':
     cur, head, tail = root, None, None
 
     while cur:
@@ -758,6 +758,14 @@ def sumNumbers(root: TreeNode) -> int:
     for item in paths:
         s += int(item)
     return s
+
+def singleNumber(nums: list) -> int:
+    ones, twos = 0, 0
+    for i in nums:
+        ones = (ones ^ i) & ~twos
+        twos = (twos ^ i) & ~ones
+    
+    return ones
 
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
