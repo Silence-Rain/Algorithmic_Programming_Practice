@@ -271,6 +271,24 @@ def maxDepth(root: TreeNode) -> int:
         return 0
     return 1 + max(maxDepth(root.left), maxDepth(root.right))
 
+def levelOrderBottom(root: TreeNode) -> list:
+    if not root:
+        return []
+    
+    q, res = [(root, 0)], []
+    while q:
+        node, level = q.pop(0)
+        if node:
+            if level == len(res):
+                res.append([node.val])
+            else:
+                res[level].append(node.val)
+            q.append((node.left, level + 1))
+            q.append((node.right, level + 1))
+    
+    res.reverse()
+    return res
+
 def sortedArrayToBST(nums: list) -> TreeNode:
     n = len(nums)
     if not n:
