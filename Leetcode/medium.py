@@ -767,6 +767,15 @@ def singleNumber(nums: list) -> int:
     
     return ones
 
+def preorderTraversal(root: TreeNode) -> list:
+    if not root:
+        return []
+    res = [root.val]
+    res += self.preorderTraversal(root.left)
+    res += self.preorderTraversal(root.right)
+    
+    return res
+
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
     return nums[k - 1]
