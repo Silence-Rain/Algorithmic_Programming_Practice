@@ -140,6 +140,8 @@ Solutions of Leetcode problems.
 
 	- #137 Single Numbers II
 
+	- #144 Binary Tree Preorder Traversal
+
 	- #215 Kth Largest Element in an Array
 
 	- #221 Maximal Square (Brute & DP)
