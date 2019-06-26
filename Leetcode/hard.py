@@ -5,6 +5,12 @@ class ListNode:
         self.val = x
         self.next = None
 
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
 def findMedianSortedArrays(nums1: List[int], nums2: List[int]) -> float:
     m = len(nums1)
     n = len(nums2)
@@ -190,4 +196,12 @@ def isNumber(s: str) -> bool:
     
     return isDecimals(s_e[0]) and isSignedInt(s_e[1])
         
-
+def postorderTraversal(root: TreeNode) -> list:
+    if not root:
+        return []
+    
+    res = self.postorderTraversal(root.left)
+    res += self.postorderTraversal(root.right)
+    res.append(root.val)
+    
+    return res
