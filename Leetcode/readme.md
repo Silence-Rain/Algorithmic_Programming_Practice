@@ -64,6 +64,8 @@ Solutions of Leetcode problems.
 
 	- #136 Single Number
 
+	- #206 Reverse Linked List
+
 	- #697 Degree of an Array
 
 - Medium
