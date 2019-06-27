@@ -385,6 +385,21 @@ def singleNumber(nums: list) -> int:
         res ^= i
     return res
 
+def reverseList(head: ListNode) -> ListNode:
+    dummy = ListNode(0)
+    dummy.next, cur = head, head
+    
+    if not head:
+        return None
+    
+    while cur.next:
+        temp = cur.next
+        cur.next = temp.next
+        temp.next = dummy.next
+        dummy.next = temp
+        
+    return dummy.next
+
 def findShortestSubArray(nums):
     m = {}
     for i,item in enumerate(nums):
