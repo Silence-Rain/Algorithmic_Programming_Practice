@@ -567,6 +567,30 @@ def deleteDuplicates(head: ListNode) -> ListNode:
         
     return dummy.next
 
+def reverseBetween(head: ListNode, m: int, n: int) -> ListNode:
+    if not head:
+        return head
+    
+    dummy = ListNode(0)
+    dummy.next = head
+    cnt, cur, beg, end = 0, dummy, None, None
+    
+    while cur and cnt < m - 1:
+        cnt += 1
+        cur = cur.next
+    
+    beg = cur
+    cur = cur.next
+    i = 0
+    while cur.next and i < n - m:
+        temp = cur.next
+        cur.next = temp.next
+        temp.next = beg.next
+        beg.next = temp
+        i += 1
+    
+    return dummy.next
+
 def inorderTraversal(root: TreeNode) -> list:
     if not root:
         return []
