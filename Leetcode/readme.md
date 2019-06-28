@@ -120,6 +120,8 @@ Solutions of Leetcode problems.
 
 	- #82 Remove Duplicates from Sorted List II
 
+	- #92 Reverse Linked List II
+
 	- #94 Binary Tree Inorder Traversal
 
 	- #102 Binary Tree Level Order Traversal
