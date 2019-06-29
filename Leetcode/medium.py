@@ -115,21 +115,6 @@ def myAtoi(str: str) -> int:
 
     return INT_MAX if ret > INT_MAX else (ret if ret >= INT_MIN else INT_MIN)
 
-def maxArea(height) -> int:
-    left = 0
-    right = len(height) - 1
-    maxArea = 0
-    
-    while left != right:
-        if height[left] < height[right]:
-            minHeight = height[left]
-            left += 1
-        else:
-            minHeight = height[right]
-            right -= 1
-        
-        maxArea = max(maxArea, (right - left + 1) * minHeight)
-
 def intToRoman(num: int) -> str:
     mapping = [
     ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],
@@ -278,79 +263,6 @@ def swapPairs(head: ListNode) -> ListNode:
     
     return temp.next
 
-def nextPermutation(nums: list) -> None:
-    n = len(nums)
-    for i in range(n - 1, 0, -1):
-        if nums[i - 1] < nums[i]:
-            # find first larger element in i - n
-            cur_max = None
-            cur_ind = None
-            for j in range(i - 1, n):
-                if nums[j] > nums[i - 1]:
-                    if not cur_max or nums[j] <= cur_max:
-                        cur_max = nums[j]
-                        cur_ind = j
-            # swap them
-            temp = nums[i - 1]
-            nums[i - 1] = nums[cur_ind]
-            nums[cur_ind] = temp
-            # sort i~n in ascending order (reverse)
-            l = i
-            r = n - 1
-            while l < r:
-                temp = nums[l]
-                nums[l] = nums[r]
-                nums[r] = temp
-                
-                l += 1
-                r -= 1          
-            return
-        
-    nums.sort()
-    return
-
-def search(nums: list, target: int) -> int:        
-    left, right = 0, len(nums) - 1
-    
-    while left <= right:
-        mid = round((left + right) / 2)     
-        if nums[mid] == target:
-            return mid     
-        if nums[left] <= nums[mid]:
-            if nums[left] <= target <= nums[mid]:
-                right = mid - 1
-            else:
-                left = mid + 1
-        else:
-            if nums[mid] <= target <= nums[right]:
-                left = mid + 1
-            else:
-                right = mid - 1
-    
-    return -1
-
-def searchRange(nums: list, target: int) -> list:
-    left = 0
-    right = len(nums) - 1
-    res = [-1, -1]
-    
-    while left <= right:
-        mid = round((left + right) / 2)
-        if nums[mid] == target:
-            cur_l = cur_r = mid
-            while cur_l > 0 and nums[cur_l - 1] == target:
-                cur_l -= 1
-            while cur_r < len(nums) - 1 and nums[cur_r + 1] == target:
-                cur_r += 1
-            res = [cur_l, cur_r]
-            break
-        elif nums[mid] > target:
-            right = mid - 1
-        else:
-            left = mid + 1
-            
-    return res
-
 def isValidSudoku(board: list) -> bool:
     rows = [{} for i in range(9)]
     cols = [{} for i in range(9)]
@@ -380,55 +292,6 @@ def permute(nums: list) -> list:
             res.append(item[:i] + [nums[0]] + item[i:])
     
     return res
-
-def rotate(matrix: list) -> None:
-    # n = len(matrix)
-    # for i in range(math.ceil(n/2)):
-    #     for j in range(math.floor(n/2)):
-    #         temp = matrix[i][j]
-    #         matrix[i][j] = matrix[n - 1 - j][i]
-    #         matrix[n - 1 - j][i] = matrix[n - 1 - i][n - 1 - j]
-    #         matrix[n - 1 - i][n - 1 - j] = matrix[j][n - 1 - i] 
-    #         matrix[j][n - 1 - i] = temp
-    matrix.reverse()
-    for i in range(len(matrix)):
-        for j in range(i + 1, len(matrix)):
-            temp = matrix[i][j]
-            matrix[i][j] = matrix[j][i]
-            matrix[j][i] = temp
-
-def spiralOrder(matrix: list) -> list:
-    if not matrix:
-        return []
-    m = len(matrix)
-    n = len(matrix[0])
-    cnt = min(m, n) // 2 + 1 if min(m, n) % 2 else min(m, n) // 2
-    ret = []
-    
-    for i in range(cnt):
-        ret.extend(matrix[i][i:n - i])
-        for j in range(i + 1, m - i):
-            ret.append(matrix[j][n - i - 1])
-        if i + 1 != m - i and i + 1 != n - i:
-            ret.extend(matrix[m - i - 1][i:n - i - 1][::-1])
-            for j in range(m - i - 2, i, -1):
-                ret.append(matrix[j][i])
-
-    return ret
-
-def merge(intervals: list) -> list:
-    if not intervals:
-        return []
-    
-    intervals.sort(key=lambda x:x[0])
-    ret = [intervals[0]]
-    for i in range(1, len(intervals)):
-        if intervals[i][0] <= ret[-1][1]:
-            ret[-1][1] = max(ret[-1][1], intervals[i][1])
-        else:
-            ret.append(intervals[i])
-    
-    return ret
 
 def generateMatrix(n: int) -> list:
     def indexGenerator(n, start):

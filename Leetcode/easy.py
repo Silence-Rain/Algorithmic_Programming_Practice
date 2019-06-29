@@ -11,30 +11,6 @@ class TreeNode:
         self.left = None
         self.right = None
 
-def twosum(nums, target):
-    dic = {}
-    for i, item in enumerate(nums):
-        if item in dic:
-            dic[item].append(i)
-        else:
-            dic[item] = [i]
-
-    nums.sort()
-    i = 0
-    j = len(nums) - 1
-    while i < j:
-        if nums[i] + nums[j] == target:
-            if nums[i] == nums[j]:
-                return dic[nums[i]]
-            else:
-                return [dic[nums[i]][0], dic[nums[j]][0]]
-
-
-        elif nums[i] + nums[j] < target:
-            i += 1
-        else:
-            j -= 1
-
 def reverse(x: int) -> int:
     xlist = list(str(x))
     xlist.reverse()
@@ -154,26 +130,6 @@ def strStr(haystack: str, needle: str) -> int:
         if haystack[i:i + len(needle)] == needle:
             return i
     return -1
-
-def searchInsert(nums: list, target: int) -> int:
-    left = 0
-    right = len(nums) - 1
-    
-    if target > nums[-1]:
-        return right + 1
-    if target < nums[0]:
-        return left
-    
-    while left <= right:
-        mid = round((left + right) / 2)
-        if nums[mid] == target:
-            return mid
-        elif mid < len(nums) - 1 and nums[mid] < target <= nums[mid + 1]:
-            return mid + 1
-        elif nums[mid] > target:
-            right = mid - 1
-        else:
-            left = mid + 1
 
 def countAndSay(n: int) -> str:
     if n == 1:

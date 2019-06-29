@@ -11,26 +11,6 @@ class TreeNode:
         self.left = None
         self.right = None
 
-def findMedianSortedArrays(nums1: List[int], nums2: List[int]) -> float:
-    m = len(nums1)
-    n = len(nums2)
-    res = []
-    flag = (m + n) % 2 == 1
-    cnt = math.ceil((m + n) / 2) if flag else int((m + n) / 2 + 1)
-    
-    for i in range(0, cnt):
-        if len(nums1) == 0:
-            res.append(nums2.pop(0))
-        elif len(nums2) == 0:
-            res.append(nums1.pop(0))
-        else:
-            if nums1[0] >= nums2[0]:
-                res.append(nums2.pop(0))
-            else:
-                res.append(nums1.pop(0))
-
-    return float(res[-1]) if flag else (res[-2] + res[-1]) / 2.0
-
 def reverseKGroup(head: ListNode, k: int) -> ListNode:
     def rev(pre: ListNode, next: ListNode):
         last = pre.next
@@ -115,35 +95,6 @@ def findSubstring(s: str, words: list) -> list:
                 ret.append(i)
                 
     return ret
-
-def firstMissingPositive(nums: list) -> int:
-        n = len(nums)
-        flags = [False for _ in range(n + 1)]
-        
-        for i in range(n):
-            if nums[i] > n:
-                continue
-            if nums[i] > 0:
-                flags[nums[i] - 1] = True
-                
-        for i in range(len(flags)):
-            if flags[i] == False:
-                return i + 1
-
-def insert(intervals: list, newInterval: list) -> list:
-    left, right = [], []
-    start, end = newInterval[0], newInterval[1]
-    
-    for i in intervals:
-        if i[1] < start:
-            left.append(i)
-        elif i[0] > end:
-            right.append(i)
-        else:
-            start = min(i[0], start)
-            end = max(i[1], end)
-    
-    return left + [[start, end]] + right
 
 def isNumber(s: str) -> bool:
     def isSign(s):
