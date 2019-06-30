@@ -119,3 +119,102 @@ def spiralOrder(matrix: list) -> list:
     return ret
 
 # 56. Merge Intervals
+def merge(intervals: list) -> list:
+    if not intervals:
+        return []
+    
+    intervals.sort(key=lambda x:x[0])
+    ret = [intervals[0]]
+    for i in range(1, len(intervals)):
+        if intervals[i][0] <= ret[-1][1]:
+            ret[-1][1] = max(ret[-1][1], intervals[i][1])
+        else:
+            ret.append(intervals[i])
+    
+    return ret
+
+# 59. Spiral Matrix II
+def generateMatrix(n: int) -> list:
+    def indexGenerator(n, start):
+        if n == 0:
+            return
+        if n == 1:
+            yield start, start
+        else:
+            for i in range(n):
+                yield start, start + i
+            for i in range(1, n):
+                yield start + i, start + n - 1
+            for i in range(1, n):
+                yield start + n - 1, start + n - 1 - i
+            for i in range(1, n - 1):
+                yield start + n - 1 - i, start
+            for i, j in indexGenerator(n - 2, start + 1):
+                yield i, j
+    
+    ret = [[0 for _ in range(n)] for _ in range(n)]
+    cnt = 1
+    for i, j in indexGenerator(n, 0):
+        ret[i][j] = cnt
+        cnt += 1
+    
+    return ret
+
+# 74. Search a 2D Matrix
+def searchMatrix(matrix: list, target: int) -> bool:
+    if not matrix or not matrix[0]:
+        return False
+    
+    m, n, targetRow = len(matrix), len(matrix[0]), -1
+    rl, rh = 0, m - 1
+    cl, ch = 0, n - 1
+    
+    while rl <= rh:
+        rmid = (rl + rh) // 2
+        if matrix[rmid][0] == target:
+            return True
+        elif matrix[rmid][0] > target:
+            if not rmid:
+                return False
+            elif target > matrix[rmid - 1][0]:
+                targetRow = rmid - 1
+                break
+            else:
+                rh = rmid - 1
+        else:
+            if rmid == m - 1:
+                targetRow = m - 1
+                break
+            elif target < matrix[rmid + 1][0]:
+                targetRow = rmid
+                break
+            else:
+                rl = rmid + 1
+    
+    while cl <= ch:
+        cmid = (cl + ch) // 2
+        if matrix[targetRow][cmid] == target:
+            return True
+        elif matrix[targetRow][cmid] > target:
+            ch = cmid - 1
+        else:
+            cl = cmid + 1
+    
+    return False
+
+# 75. Sort Colors
+def sortColors(nums: list) -> None:
+    n = len(nums)
+    l, r = 0, n - 1
+    for i in range(n): 
+        while nums[i] == 2 and i < r:
+            nums[r] = nums[i] + nums[r]
+            nums[i] = nums[r] - nums[i]
+            nums[r] = nums[r] - nums[i]
+            r -= 1
+            
+        while nums[i] == 0 and i > l:
+            nums[l] = nums[i] + nums[l]
+            nums[i] = nums[l] - nums[i]
+            nums[l] = nums[l] - nums[i]
+            l += 1

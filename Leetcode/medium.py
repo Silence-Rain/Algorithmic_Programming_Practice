@@ -293,32 +293,6 @@ def permute(nums: list) -> list:
     
     return res
 
-def generateMatrix(n: int) -> list:
-    def indexGenerator(n, start):
-        if n == 0:
-            return
-        if n == 1:
-            yield start, start
-        else:
-            for i in range(n):
-                yield start, start + i
-            for i in range(1, n):
-                yield start + i, start + n - 1
-            for i in range(1, n):
-                yield start + n - 1, start + n - 1 - i
-            for i in range(1, n - 1):
-                yield start + n - 1 - i, start
-            for i, j in indexGenerator(n - 2, start + 1):
-                yield i, j
-    
-    ret = [[0 for _ in range(n)] for _ in range(n)]
-    cnt = 1
-    for i, j in indexGenerator(n, 0):
-        ret[i][j] = cnt
-        cnt += 1
-    
-    return ret
-
 def rotateRight(head: ListNode, k: int) -> ListNode:
     if not head or not head.next or not k:
         return head
@@ -359,48 +333,6 @@ def simplifyPath(path: str) -> str:
             stack.append(dirs[i])
 
     return "/" + "/".join(stack)
-
-def searchMatrix(matrix: list, target: int) -> bool:
-    if not matrix or not matrix[0]:
-        return False
-    
-    m, n = len(matrix), len(matrix[0])
-    rl, rh = 0, m - 1
-    cl, ch = 0, n - 1
-    targetRow = -1
-    
-    while rl <= rh:
-        rmid = (rl + rh) // 2
-        if matrix[rmid][0] == target:
-            return True
-        elif matrix[rmid][0] > target:
-            if not rmid:
-                return False
-            elif target > matrix[rmid - 1][0]:
-                targetRow = rmid - 1
-                break
-            else:
-                rh = rmid - 1
-        else:
-            if rmid == m - 1:
-                targetRow = m - 1
-                break
-            elif target < matrix[rmid + 1][0]:
-                targetRow = rmid
-                break
-            else:
-                rl = rmid + 1
-    
-    while cl <= ch:
-        cmid = (cl + ch) // 2
-        if matrix[targetRow][cmid] == target:
-            return True
-        elif matrix[targetRow][cmid] > target:
-            ch = cmid - 1
-        else:
-            cl = cmid + 1
-    
-    return False
 
 def deleteDuplicates(head: ListNode) -> ListNode:
     if not head:

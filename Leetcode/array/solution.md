@@ -29,6 +29,25 @@
 
   - When `nums[mid] < target <= nums[mid + 1]`, we can determine the proper insert position to be `mid + 1`
 
+- \#66 Plus One
+
+  Basic idea: `List.map()`, list comprehensions
+
+- \#118 Pascal's Triangle
+
+  Basic idea: Simple iterative solution
+
+- \#119 Pascal's Triangle II
+
+  Basic idea: Simple iterative solution, only need to save last row
+
+- \#697 Degree of an Array
+
+  Basic idea: Hash table
+
+  - Traverse the array. Calculate each element's frequency, start index, and end index, then save into a hash table
+  - Traverse the hash table, find the most frequent element, return the distance between its start index and end index
+
 ### Medium
 
 - \#11 Container With Most Water
@@ -85,6 +104,26 @@
   - Sort the array by the left boundary of intervals
   - Traverse the array. If current interval's left boundary is less than the right boundary of previous interval, then we can merge them 
 
+- \#59 Spiral Matrix II
+
+  Basic idea: Generator
+
+  - Use Python's feature: iterator & generator, produce the next coordinate in order
+
+- \#74 Search a 2D Matrix
+
+  Basic idea: Binary search
+
+  - Perform 2 binary search. Pinpoint  `targetRow` in the first time, then find the target element
+
+- \#75 Sort Colors
+
+  Basic idea: 2 pointers & partition
+
+  - Since there are only 3 types of elements, after sort, '0' must be placed at the left side, '1' must be placed at the middle, and '2' must be placed at the right side
+  - Maintain 2 pointers: `l` represents the end of '0' area, `r` represents the beginning of '2' area
+  - If current element is '0', swap it with `nums[l]`. If it is '2', swap it with `nums[r]`. Otherwise, do nothing
+
 ### Hard
 
 - \#4 Median of Two Sorted Arrays
@@ -110,4 +149,3 @@
 
   - For each interval, if its right boundary is less than the left boundary of `newInterval`, it should be placed at the left side of `newInterval`, and vice versa
   - Concat the intervals which should be placed at the left side, `newInterval`, and the intervals which should be placed at the right side
-

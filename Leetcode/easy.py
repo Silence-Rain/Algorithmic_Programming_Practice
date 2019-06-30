@@ -106,25 +106,6 @@ def mergeTwoLists(l1: ListNode, l2: ListNode) -> ListNode:
     
     return head.next
 
-def remove_duplicates(nums):
-    i = 0
-    j = 0
-    count = 0
-
-    while j < len(nums):
-        if nums[i] != nums[j]:
-            i = j
-            count += 1
-            nums[count] = nums[i]
-        j += 1
-
-    return count + 1
-
-def removeElement(nums: list, val: int) -> int:
-    while val in nums:
-        nums.remove(val)
-    return len(nums)
-
 def strStr(haystack: str, needle: str) -> int:
     for i in range(len(haystack) - len(needle) + 1):
         if haystack[i:i + len(needle)] == needle:
@@ -152,18 +133,6 @@ def lengthOfLastWord_regexp(s: str) -> int:
 
 def lengthOfLastWord_split(s: str) -> int:
     return len(s.strip().split(" ")[-1])
-
-def plusOne(digits: list) -> list:
-    # return [int(i) for i in str(int("".join(map(str, digits))) + 1)]
-    for i in range(len(digits) - 1, -1, -1):
-        digits[i] += 1
-        if digits[i] != 10:
-            break
-        else:
-            digits[i] = 0
-    if not digits[0]:
-        digits.insert(0, 1)
-    return digits
 
 def addBinary(a: str, b: str) -> str:
     la, lb = len(a), len(b)
@@ -296,30 +265,6 @@ def hasPathSum(root: TreeNode, sum: int) -> bool:
         return True
     return hasPathSum(root.left, sum - root.val) or hasPathSum(root.right, sum - root.val)
 
-def generate(numRows: int) -> list:
-    if not numRows:
-        return []
-
-    res = [[1]]
-    for i in range(1, numRows):
-        temp = [1]
-        for j in range(i - 1):
-            temp.append(res[i - 1][j] + res[i - 1][j + 1])
-        res.append(temp + [1])
-
-    return res
-
-def getRow(rowIndex: int) -> list:
-    cur = [1]
-    for _ in range(rowIndex):
-        res = [1]
-        for i in range(len(cur) - 1):
-            res.append(cur[i] + cur[i + 1])
-        res.append(1)
-        cur = res
-    
-    return cur
-
 def isPalindrome(s: str) -> bool:
     i, j = 0, len(s) - 1
     while i < j:
@@ -355,20 +300,4 @@ def reverseList(head: ListNode) -> ListNode:
         dummy.next = temp
         
     return dummy.next
-
-def findShortestSubArray(nums):
-    m = {}
-    for i,item in enumerate(nums):
-        if item in m:
-            m[item][0] += 1
-            m[item][2] = i
-        else:
-            m[item] = [1, i, i]
-
-    cur = [0, 0, 0]
-    for item in m.values():
-        if item[0] > cur[0] or (item[0] == cur[0] and item[2] - item[1] < cur[2] - cur[1]):
-            cur = item
-
-    return cur[2] - cur[1] + 1
 

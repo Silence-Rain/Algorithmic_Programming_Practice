@@ -59,3 +59,50 @@ def searchInsert(nums: list, target: int) -> int:
             right = mid - 1
         else:
             left = mid + 1
+
+# 66. Plus One
+def plusOne(digits: list) -> list:
+    return [int(i) for i in str(int("".join(map(str, digits))) + 1)]
+
+# 118. Pascal's Triangle
+def generate(numRows: int) -> list:
+    if not numRows:
+        return []
+
+    res = [[1]]
+    for i in range(1, numRows):
+        temp = [1]
+        for j in range(i - 1):
+            temp.append(res[i - 1][j] + res[i - 1][j + 1])
+        res.append(temp + [1])
+
+    return res
+
+# 119. Pascal's Triangle II
+def getRow(rowIndex: int) -> list:
+    cur = [1]
+    for _ in range(rowIndex):
+        res = [1]
+        for i in range(len(cur) - 1):
+            res.append(cur[i] + cur[i + 1])
+        res.append(1)
+        cur = res
+    
+    return cur
+
+# 697. Degree of an Array
+def findShortestSubArray(nums: list) -> int:
+    m = {}
+    for i, item in enumerate(nums):
+        if item in m:
+            m[item][0] += 1
+            m[item][2] = i
+        else:
+            m[item] = [1, i, i]
+
+    cur = [0, 0, 0]
+    for item in m.values():
+        if item[0] > cur[0] or (item[0] == cur[0] and item[2] - item[1] < cur[2] - cur[1]):
+            cur = item
+
+    return cur[2] - cur[1] + 1
