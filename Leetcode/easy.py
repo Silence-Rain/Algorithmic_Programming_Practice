@@ -11,33 +11,6 @@ class TreeNode:
         self.left = None
         self.right = None
 
-def reverse(x: int) -> int:
-    xlist = list(str(x))
-    xlist.reverse()
-    
-    if xlist[-1] == '-':
-        xlist.pop()
-        xlist.insert(0, '-')
-        
-    ret = int("".join(xlist))
-    return ret if ret >= - 2 ** 31 and ret <= 2 ** 31 - 1 else 0
-
-def isPalindrome_simple(x: int) -> bool:
-    s = str(x)
-    rev = str(x)[::-1]
-    return s == rev
-
-def isPalindrome_no_str(x: int) -> bool:
-    if x < 0 or (x % 10 == 0 and x != 0):
-        return False
-    
-    reverted = 0
-    while x > reverted:
-        reverted = reverted * 10 + x % 10
-        x = int(x / 10)
-        
-    return x == reverted or x == int(reverted / 10)
-
 def longestCommonPrefix(strs: list) -> str:
     ind = 0
     n = len(strs)
@@ -150,12 +123,6 @@ def addBinary(a: str, b: str) -> str:
         carry = (temp_sum & carry) | temp_carry
     
     return res if not carry else "1" + res
-
-def mySqrt(x: int) -> int:
-    r = x
-    while r * r > x:
-        r = (r + x / r) // 2
-    return int(r)
 
 def deleteDuplicates(head: ListNode) -> ListNode:
     if not head:

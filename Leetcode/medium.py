@@ -160,37 +160,6 @@ def romanToInt(s: str) -> int:
             
     return ret + mapping[s[n - 1]]
 
-def threeSum(nums: list) -> list:
-    res = []
-    nums.sort()
-    n = len(nums)
-    if n == 0 or nums[0] > 0 or nums[n - 1] < 0:
-        return []
-    for k in range(n):
-        if nums[k] > 0:
-            break
-        if k > 0 and nums[k] == nums[k - 1]:
-            continue
-        target = 0 - nums[k]
-
-        i = k + 1
-        j = n - 1
-        while i < j:
-            if nums[i] + nums[j] == target:
-                res.append([nums[k], nums[i], nums[j]])
-                while i < j and nums[i] == nums[i + 1]:
-                    i += 1
-                while i < j and nums[j] == nums[j - 1]:
-                    j -= 1
-                i += 1
-                j -= 1
-            elif nums[i] + nums[j] < target:
-                i += 1
-            else:
-                j -= 1
-
-    return res
-
 def letterCombinations(digits: str):
     if len(digits) == 0:
         return []
@@ -648,23 +617,6 @@ def maximal_square_dp(matrix):
 
     return maxi ** 2
 
-def perfect_square(n):
-    while n % 4 == 0:
-        n /= 4
-
-    if n % 8 == 7:
-        return 4
-
-    i = 0
-    while i ** 2 < n:
-        b = int(math.sqrt(n - i ** 2))
-        if i ** 2 + b ** 2 == n:
-            return 1 if i == 0 else 2
-
-        i += 1
-
-    return 3
-
 def battleship(board):
     if len(board) == 0:
         return 0
@@ -693,10 +645,4 @@ def findMaxLength(nums):
             m[key] = i
 
     return maxi
-
-def valid_square(p1, p2, p3, p4):
-    def dist(p1, p2):
-        return (p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2
-    res = set((dist(p1, p2), dist(p1, p3), dist(p1, p4), dist(p2, p3), dist(p2, p4), dist(p3, p4)))
-    return (0 not in res) and len(res) == 2
 
