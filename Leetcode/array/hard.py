@@ -1,3 +1,5 @@
+import math
+
 # 4. Median of Two Sorted Arrays
 def findMedianSortedArrays(nums1: list, nums2: list) -> float:
     m, n, temp = len(nums1), len(nums2), -1

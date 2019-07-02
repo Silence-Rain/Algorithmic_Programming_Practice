@@ -1,3 +1,5 @@
+import math
+
 # 31. Next Permutation
 def nextPermutation(self, nums: list) -> None:
     n = len(nums)
