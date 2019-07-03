@@ -5,12 +5,6 @@ class ListNode:
         self.val = x
         self.next = None
 
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
-
 def reverseKGroup(head: ListNode, k: int) -> ListNode:
     def rev(pre: ListNode, next: ListNode):
         last = pre.next
@@ -147,12 +141,4 @@ def isNumber(s: str) -> bool:
     
     return isDecimals(s_e[0]) and isSignedInt(s_e[1])
         
-def postorderTraversal(root: TreeNode) -> list:
-    if not root:
-        return []
-    
-    res = self.postorderTraversal(root.left)
-    res += self.postorderTraversal(root.right)
-    res.append(root.val)
-    
-    return res
+
