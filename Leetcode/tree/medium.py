@@ -85,7 +85,7 @@ def buildTree(preorder: list, inorder: list) -> TreeNode:
     return root
 
 # 106. Construct Binary Tree from Inorder and Postorder Traversal
- def buildTree(inorder: list, postorder: list) -> TreeNode:
+def buildTree(inorder: list, postorder: list) -> TreeNode:
     if not postorder:
         return None
         
@@ -94,7 +94,7 @@ def buildTree(preorder: list, inorder: list) -> TreeNode:
     ind = inorder.index(root_val)
     root.left = buildTree(inorder[:ind], postorder[:ind])
     root.right = buildTree(inorder[ind + 1:], postorder[ind:])
-    
+
     return root
 
 # 113. Path Sum II

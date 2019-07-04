@@ -20,27 +20,6 @@ class Node:
         self.right = right
         self.next = next
 
-def addTwoNumbers(l1: ListNode, l2: ListNode) -> ListNode:
-    carry = 0 
-    head = ListNode(0)
-    currentNode = head
-    while l1 or l2:
-        if l1:
-            carry += l1.val
-            l1 = l1.next
-        if l2:
-            carry += l2.val
-            l2 = l2.next
-            
-        currentNode.next = ListNode(carry % 10)
-        currentNode = currentNode.next
-        carry = carry // 10
-        
-    if carry == 1:
-        currentNode.next = ListNode(1)
-        currentNode = currentNode.next
-    return head.next
-
 def lengthOfLongestSubstring(s: str) -> int:
     dic = {}
     length = 0
@@ -177,23 +156,6 @@ def letterCombinations(digits: str):
     arr = [maps[x] for x in list(digits)]
     return ["".join(x) for x in itertools.product(*arr)]
 
-def removeNthFromEnd(head: ListNode, n: int) -> ListNode:
-    l = ListNode(0)
-    l.next = head
-    p1 = l
-    p2 = l
-    
-    for i in range(n + 1):
-        p1 = p1.next
-
-    while p1:
-        p1 = p1.next
-        p2 = p2.next
- 
-    p2.next = p2.next.next
-    
-    return l.next
-
 def generateParenthesis(n: int) -> list:
     ret = []
     
@@ -208,29 +170,6 @@ def generateParenthesis(n: int) -> list:
 
     enum("")
     return ret
-
-def swapPairs(head: ListNode) -> ListNode:
-    if not head or not head.next:
-        return head
-    
-    temp = ListNode(0)
-    bef = temp
-    first = temp.next = head
-    second = first.next
-    
-    while second:
-        bef.next = second
-        first.next = second.next
-        second.next = first
-        
-        bef = first
-        first = first.next
-        if not first:
-            break
-        else:
-            second = first.next
-    
-    return temp.next
 
 def isValidSudoku(board: list) -> bool:
     rows = [{} for i in range(9)]
@@ -262,34 +201,6 @@ def permute(nums: list) -> list:
     
     return res
 
-def rotateRight(head: ListNode, k: int) -> ListNode:
-    if not head or not head.next or not k:
-        return head
-    
-    tail = head
-    n = 1
-    while tail.next:
-        tail = tail.next
-        n += 1
-        
-    diff = k % n
-    if not diff:
-        return head
-    else:
-        p = head
-        for i in range(n - diff - 1):
-            p = p.next
-
-        last = p
-        p = p.next
-        last.next = None
-        ret = p
-        while p.next:
-            p = p.next
-        p.next = head
-
-        return ret
-
 def simplifyPath(path: str) -> str:
     dirs = path.split('/')
     stack = []
@@ -302,79 +213,6 @@ def simplifyPath(path: str) -> str:
             stack.append(dirs[i])
 
     return "/" + "/".join(stack)
-
-def deleteDuplicates(head: ListNode) -> ListNode:
-    if not head:
-        return None
-    
-    res = set()
-    last = head
-    p = head.next
-    while p:
-        if p.val == last.val:
-            last.next = p.next
-            res.add(p.val)
-        else:
-            last = p
-        p = p.next
-    
-    dummy = ListNode(0)
-    dummy.next = head
-    last = dummy
-    p = head
-    while p:
-        if p.val in res:
-            last.next = p.next
-        else:
-            last = last.next
-        p = p.next
-        
-    return dummy.next
-
-def reverseBetween(head: ListNode, m: int, n: int) -> ListNode:
-    if not head:
-        return head
-    
-    dummy = ListNode(0)
-    dummy.next = head
-    cnt, cur, beg, end = 0, dummy, None, None
-    
-    while cur and cnt < m - 1:
-        cnt += 1
-        cur = cur.next
-    
-    beg = cur
-    cur = cur.next
-    i = 0
-    while cur.next and i < n - m:
-        temp = cur.next
-        cur.next = temp.next
-        temp.next = beg.next
-        beg.next = temp
-        i += 1
-    
-    return dummy.next
-
-def sortedListToBST(head: ListNode) -> TreeNode:
-    if not head:
-        return None
-    if not head.next:
-        return TreeNode(head.val)
-    
-    pfast = head
-    pslow = head
-    pre = None
-    while pfast and pfast.next:
-        pre = pslow
-        pfast = pfast.next.next
-        pslow = pslow.next
-    
-    pre.next = None
-    root = TreeNode(pslow.val)
-    root.left = sortedListToBST(head)
-    root.right = sortedListToBST(pslow.next)
-    
-    return root
 
 def singleNumber(nums: list) -> int:
     ones, twos = 0, 0

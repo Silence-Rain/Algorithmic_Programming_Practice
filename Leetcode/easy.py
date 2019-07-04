@@ -51,34 +51,6 @@ def isValid(s: str) -> bool:
             
     return False if len(stack) else True
 
-def mergeTwoLists(l1: ListNode, l2: ListNode) -> ListNode:
-    p1 = l1
-    p2 = l2
-    res = ListNode(0)
-    head = res
-    
-    while p1 and p2:
-        if p1.val <= p2.val:
-            res.next = ListNode(p1.val)
-            p1 = p1.next
-        else:
-            res.next = ListNode(p2.val)
-            p2 = p2.next
-        res = res.next
-    
-    if p1:
-        while p1:
-            res.next = ListNode(p1.val)
-            p1 = p1.next
-            res = res.next
-    else:
-        while p2:
-            res.next = ListNode(p2.val)
-            p2 = p2.next
-            res = res.next
-    
-    return head.next
-
 def strStr(haystack: str, needle: str) -> int:
     for i in range(len(haystack) - len(needle) + 1):
         if haystack[i:i + len(needle)] == needle:
@@ -124,21 +96,6 @@ def addBinary(a: str, b: str) -> str:
     
     return res if not carry else "1" + res
 
-def deleteDuplicates(head: ListNode) -> ListNode:
-    if not head:
-        return None
-    
-    last = head
-    p = head.next
-    while p:
-        if p.val == last.val:
-            last.next = p.next
-        else:
-            last = p
-        p = p.next
-            
-    return head
-
 def isPalindrome(s: str) -> bool:
     i, j = 0, len(s) - 1
     while i < j:
@@ -159,19 +116,4 @@ def singleNumber(nums: list) -> int:
     for i in nums:
         res ^= i
     return res
-
-def reverseList(head: ListNode) -> ListNode:
-    dummy = ListNode(0)
-    dummy.next, cur = head, head
-    
-    if not head:
-        return None
-    
-    while cur.next:
-        temp = cur.next
-        cur.next = temp.next
-        temp.next = dummy.next
-        dummy.next = temp
-        
-    return dummy.next
 
