@@ -1,19 +1,10 @@
-import math
-
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
+# 30. Substring with Concatenation of All Words
 def findSubstring(s: str, words: list) -> list:
-    s_l = len(s)
-    ws_l = len(words)
-    ret = []
+    s_l, ws_l = len(s), len(words)
     if not s_l or not ws_l:
         return []
     
-    w_l = len(words[0])
-    words_map = {}
+    w_l, words_map, ret = len(words[0]), {}, []
     for item in words:
         if item in words_map:
             words_map[item] += 1
@@ -37,6 +28,7 @@ def findSubstring(s: str, words: list) -> list:
                 
     return ret
 
+# 65. Valid Number
 def isNumber(s: str) -> bool:
     def isSign(s):
         return s == '+' or s == '-'
@@ -44,7 +36,6 @@ def isNumber(s: str) -> bool:
     def isUnsignedInt(s):
         if not len(s):
             return False
-        
         for i in s:
             if ord(i) < 48 or ord(i) > 57:
                 return False
@@ -87,5 +78,3 @@ def isNumber(s: str) -> bool:
         return isDecimals(s)
     
     return isDecimals(s_e[0]) and isSignedInt(s_e[1])
-        
-
