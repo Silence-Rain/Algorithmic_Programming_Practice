@@ -1,4 +1,44 @@
+import itertools
 import math
+
+# 12. Integer to Roman
+def intToRoman(num: int) -> str:
+    mapping, digits, ret = [
+    ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],
+    ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"],
+    ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"],
+    ["", "M", "MM", "MMM"]
+    ], [], []
+
+    while num >= 1:
+        digits.append(num % 10)
+        num = int(num / 10)
+    
+    for ind, i in enumerate(digits):
+        ret.append(mapping[ind][i])
+
+    ret.reverse()
+    
+    return "".join(ret)
+
+# 17. Letter Combinations of a Phone Number
+def letterCombinations(digits: str):
+    if len(digits) == 0:
+        return []
+    
+    maps = {
+        "2": ["a", "b", "c"],
+        "3": ["d", "e", "f"],
+        "4": ["g", "h", "i"],
+        "5": ["j", "k", "l"],
+        "6": ["m", "n", "o"],
+        "7": ["p", "q", "r", "s"],
+        "8": ["t", "u", "v"],
+        "9": ["w", "x", "y", "z"]
+    }
+    arr = [maps[x] for x in list(digits)]
+    
+    return ["".join(x) for x in itertools.product(*arr)]
 
 # 31. Next Permutation
 def nextPermutation(self, nums: list) -> None:

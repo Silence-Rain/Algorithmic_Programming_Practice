@@ -22,6 +22,27 @@ def isPalindrome(x: int) -> bool:
         
     return x == reverted or x == int(reverted / 10)
 
+# 13. Roman to Integer
+def romanToInt(s: str) -> int:
+    mapping, ret, n = {
+        "I": 1,
+        "V": 5,
+        "X": 10,
+        "L": 50,
+        "C": 100,
+        "D": 500,
+        "M": 1000
+    }, 0, len(s)
+
+    for i in range(n - 1):
+        cur, next = mapping[s[i]], mapping[s[i + 1]]
+        if cur >= next:
+            ret += cur
+        else:
+            ret -= cur
+            
+    return ret + mapping[s[n - 1]]
+
 # 69. Sqrt(x)
 def mySqrt(x: int) -> int:
     r = x

@@ -10,11 +10,27 @@
 
   Basic idea: Only reverting the first half of `x`, and compare the reverted half with the other half
 
+- \#13 Roman to Integer
+
+  Basic idea: Add the corresponding integer of Roman numerals together according to the rules
+
 - \#69 Sqrt(x)
 
   Basic idea: Newton's method
 
 ### Medium
+
+- \#12 Integer to Roman
+
+  Basic idea: Map
+
+  - Construct a map from integer digit to corresponding Roman numerals, and replace it digit by digit
+
+- \#17 Letter Combinations of a Phone Number
+
+  Basic idea: Descartes Product
+
+  - All possible combinations are actually the Descartes product of the letter sets on all buttons
 
 - \#31 Next Permutation
 

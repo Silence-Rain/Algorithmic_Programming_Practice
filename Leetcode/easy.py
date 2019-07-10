@@ -1,16 +1,5 @@
 import re
 
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
-
 def longestCommonPrefix(strs: list) -> str:
     ind = 0
     n = len(strs)

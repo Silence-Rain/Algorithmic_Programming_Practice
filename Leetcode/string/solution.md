@@ -16,7 +16,47 @@
 
 - \#5 Longest Palindromic Substring
 
-  
+  Basic idea: 1-pass, use each index as the middle point of palindromic substring
+
+  - Set a variable `maxLen` to record the max length of substring currently
+  - For each index, treat it as the middle point of possible palindromic substring, expand the substring to both left and right if both adjacent letters are the same
+  - If the right adjacent letter is the same as the middle point's letter, expand the substring to the right
+  - If the length between current index and the end of the string is less than `maxLen / 2`, then the longest substring is found
+
+- \#6 ZigZag Conversion
+
+  Basic idea: Remainder
+
+  - The line indices of the next letter have a period of `2 * (numRows - 1)`
+  - During the period, the indices have the pattern of `0…n…1`
+
+- \#8 String to Integer (atoi)
+
+  Basic idea: Regular expression
+
+  - Use regular expression to filter the accurate format
+  - Use built-in function to complete the conversion
+  - Return the result after boundary check
+
+- \#22 Generate Parentheses
+
+  Basic idea: Recursive solution
+
+  - A valid sequence of parentheses must contain the same number (exactly `n`) of `(` and `)`, and must start with `(`
+
+- \#49 Group Anagrams
+
+  Basic idea: Hash table, tuple-shaped key
+
+  - Construct a `char_map` for each word to record the frequency of each letter
+  - Use the tuple version of `char_map` as the key of the word in the hash table
+
+- \#71 Simplify Path
+
+  Basic idea: Stack
+
+  - Split the path by `/`
+  - Simplify the path according to the rules, then put correct compartment into stack
 
 ### Hard
 
