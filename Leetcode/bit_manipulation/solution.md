@@ -1,4 +1,4 @@
-# Solution of Bit Manipulation's Problem
+# Solution of Bit Manipulation's Problems
 
 ### Easy
 

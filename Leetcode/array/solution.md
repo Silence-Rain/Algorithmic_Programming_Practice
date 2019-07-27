@@ -1,4 +1,4 @@
-# Solution of Array's Problem
+# Solution of Array's Problems
 
 ### Easy
 
@@ -123,6 +123,14 @@
   - Since there are only 3 types of elements, after sort, '0' must be placed at the left side, '1' must be placed at the middle, and '2' must be placed at the right side
   - Maintain 2 pointers: `l` represents the end of '0' area, `r` represents the beginning of '2' area
   - If current element is '0', swap it with `nums[l]`. If it is '2', swap it with `nums[r]`. Otherwise, do nothing
+
+- \#525 Contiguous Array
+
+  Basic idea: Hash map
+
+  - Construct a hash map in which key represents how much more 1s than 0s, and value represents the index
+  - When the `key` is `0`, it shows that we've encountered equal number of 0s and 1s from the beginning till the current index
+  - If we encounter the same `key` twice while traversing the array, it means that the number of 0s and 1s are equal between the indices corresponding to the equal `key` values.
 
 ### Hard
 

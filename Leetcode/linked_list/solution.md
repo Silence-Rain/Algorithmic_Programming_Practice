@@ -1,4 +1,4 @@
-# Solution of Linked List's problem
+# Solution of Linked List's Problems
 
 ### Easy
 

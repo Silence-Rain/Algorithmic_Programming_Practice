@@ -220,3 +220,15 @@ def sortColors(nums: list) -> None:
             nums[i] = nums[l] - nums[i]
             nums[l] = nums[l] - nums[i]
             l += 1
+
+# 525. Contiguous Array
+def findMaxLength(nums):
+    key, mapping, curMax = 0, {0: -1}, 0
+    for i in range(len(nums)):
+        key += -1 if nums[i] == 0 else 1
+        if key in mapping:
+            curMax = max(curMax, i - mapping[key])
+        else:
+            mapping[key] = i
+
+    return curMax

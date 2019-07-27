@@ -1,4 +1,4 @@
-#  olution of Dynamic Programming's Problem
+#  olution of Dynamic Programming's Problems
 
 ### Medium
 

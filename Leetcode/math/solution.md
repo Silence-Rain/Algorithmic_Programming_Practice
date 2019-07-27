@@ -1,4 +1,4 @@
-# Solution of Math's problem
+# Solution of Math's Problems
 
 ### Easy
 
@@ -41,6 +41,12 @@
 	- Swap `nums[cur_ind]` with `nums[i - 1]`
 	- Sort `nums[i:]` in ascending order. Since step 1 ensures elements in `[i, n]` are already in descending order, we just need to reverse this part
 	
+- \#46 Permutations
+
+  Basic idea: Recursive solution
+
+  - Recursively put the current first element into each possible space between all backward elements
+
 - \#279 Perfect Squares
 
   Basic idea: Lagrange's four-square theorem

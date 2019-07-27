@@ -1,4 +1,4 @@
-# Solution of String's Problem
+# Solution of String's Problems
 
 ### Easy
 

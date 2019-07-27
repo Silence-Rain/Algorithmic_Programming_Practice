@@ -70,6 +70,19 @@ def nextPermutation(self, nums: list) -> None:
 
     nums.sort()
 
+# 46. Permutations
+def permute(nums: list) -> list:
+    if len(nums) <= 1:
+        return [nums]
+    
+    res = []
+    temp = permute(nums[1:])
+    for item in temp:
+        for i in range(len(item) + 1):
+            res.append(item[:i] + [nums[0]] + item[i:])
+    
+    return res
+
 # 279. Perfect Squares
 def numSquares(n: int) -> int:
     while n % 4 == 0:
