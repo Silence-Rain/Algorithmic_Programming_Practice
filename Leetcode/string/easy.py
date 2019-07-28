@@ -99,10 +99,3 @@ def isPalindrome(s: str) -> bool:
         j -= 1
 
     return True
-
-def singleNumber(nums: list) -> int:
-    res = 0
-    for i in nums:
-        res ^= i
-    return res
-
