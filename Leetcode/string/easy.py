@@ -1,73 +1,72 @@
 import re
 
+# 14. Longest Common Prefix
 def longestCommonPrefix(strs: list) -> str:
-    ind = 0
-    n = len(strs)
+    ind, n = 0, len(strs)
     
     if n == 0:
         return ""
-    elif n == 1:
+    if n == 1:
         return strs[0]
-    else:
-        try:
-            while True:
-                for i in range(1, n):
-                    if strs[i - 1][ind] != strs[i][ind]:
-                        return strs[0][:ind]
-                ind += 1
-        except:
-            return strs[0][:ind]
 
+    try:
+        while True:
+            for i in range(1, n):
+                if strs[i - 1][ind] != strs[i][ind]:
+                    return strs[0][:ind]
+            ind += 1
+    except:
+        return strs[0][:ind]
+
+# 20. Valid Parentheses
 def isValid(s: str) -> bool:
-    front = ["{", "[", "("]
-    back = ["}", "]", ")"]
-    strs = list(s)
+    left, right, strs = ["{", "[", "("], ["}", "]", ")"], list(s)
     
     if not len(strs):
         return True
-    if len(strs) == 1 or strs[0] in back:
+    if len(strs) % 2 == 1 or strs[0] in right:
         return False
     
     stack = [strs.pop(0)]
     while len(strs):
         cur = strs.pop(0)
-        if cur in front:
+        if cur in left:
             stack.append(cur)
-        elif not len(stack) or front.index(stack[-1]) != back.index(cur):
+        elif not len(stack) or left.index(stack[-1]) != right.index(cur):
             return False
         else:
             stack.pop()
             
     return False if len(stack) else True
 
+# 28. Implement strStr()
 def strStr(haystack: str, needle: str) -> int:
     for i in range(len(haystack) - len(needle) + 1):
         if haystack[i:i + len(needle)] == needle:
             return i
     return -1
 
+# 38. Count and Say
 def countAndSay(n: int) -> str:
     if n == 1:
         return "1"
     
-    prev = countAndSay(n - 1)
-    ret = ""
-    c = 0
+    prev, ret, c = countAndSay(n - 1), "", 0
     for i in range(len(prev)):
-        c += 1
-        
+        c += 1        
         if i + 1 == len(prev) or prev[i] != prev[i + 1]:
             ret += "%s%s" % (c, prev[i])
             c = 0
     
     return ret
 
-def lengthOfLastWord_regexp(s: str) -> int:
+# 58. Length of Last Word
+def lengthOfLastWord_1(s: str) -> int:
     return len(re.search(r"([a-zA-Z] )*([a-zA-Z]+)[ ]*$", s).group(2)) if len(s.strip()) else 0
-
-def lengthOfLastWord_split(s: str) -> int:
+def lengthOfLastWord_2(s: str) -> int:
     return len(s.strip().split(" ")[-1])
 
+# 67. Add Binary
 def addBinary(a: str, b: str) -> str:
     la, lb = len(a), len(b)
     if la > lb:
@@ -85,6 +84,7 @@ def addBinary(a: str, b: str) -> str:
     
     return res if not carry else "1" + res
 
+# 125. Valid Palindrome
 def isPalindrome(s: str) -> bool:
     i, j = 0, len(s) - 1
     while i < j:

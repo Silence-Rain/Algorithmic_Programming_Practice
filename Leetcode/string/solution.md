@@ -2,7 +2,50 @@
 
 ### Easy
 
+- \#14 Longest Common Prefix
 
+  Basic idea: `try ... catch ...`
+
+  - Set up a variable `ind` as the ending index of current longest common prefix
+  - Iff all the strings in `strs` has the same value at position `ind`, increase `ind` by 1. Otherwise return the current longest common prefix
+  - If the value of `ind` goes beyond the length of any string in `strs`, return the current longest common prefix
+
+- \#20 Valid Parentheses
+
+  Basic idea: Stack
+
+  - A valid sequence of parentheses must contain even number of elements and must start with left bracket
+  - Use the similar method in transforming arithmetic expression into Polish notation
+
+- \#28 Implement strStr()
+
+  Basic idea: Python's feature: Slice
+
+- \#38 Count and Say
+
+  Basic idea: Recursive solution
+
+- \#58 Length of Last Word
+
+  Basic idea: Regular expression / `split()`
+
+  Regular expression: 
+
+  - Construct a regular expression for the last word in a sentence, then return its length
+
+  `split()`:
+
+  - The last word must be the last element in the split sequence
+
+- \#67 Add Binary
+
+  Basic idea: Binary full adder
+
+- \#125 Valid Palindrome
+
+  Basic idea: 2 pointers
+
+  - Ignore the non-alphabetical chars by increase `i`/decrease `j`
 
 ### Medium
 
