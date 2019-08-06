@@ -64,6 +64,10 @@
   - Typical recursive construction method of BST, similar to #108
   - Set a fast pointer which moves twice fast as the slow one, thus find the middle point of the list
 
+- \#147 Insertion Sort List
+
+  Basic idea: Typical algorithm of insertion sort
+
 ### Hard
 
 - \#23 Merge k Sorted Lists
