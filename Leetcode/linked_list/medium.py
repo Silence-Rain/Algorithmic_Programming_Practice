@@ -161,3 +161,17 @@ def sortedListToBST(head: ListNode) -> TreeNode:
     root.right = sortedListToBST(pslow.next)
     
     return root
+
+# 147. Insertion Sort List
+def insertionSortList(head: ListNode) -> ListNode:
+    dummy, p = ListNode(0), head
+    while p:
+        temp, pre = p.next, dummy
+        while pre.next and pre.next.val < p.val:
+            pre = pre.next
+
+        p.next = pre.next
+        pre.next = p
+        p = temp
+    
+    return dummy.next
