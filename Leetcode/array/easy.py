@@ -1,24 +1,39 @@
 # 1. 2Sum
 def twosum(nums: list, target: int) -> list:
-    dic = {}
-    for i, item in enumerate(nums):
-        if item in dic:
-            dic[item].append(i)
-        else:
-            dic[item] = [i]
+    # # Binary search
+    # dic = {}
+    # for i, item in enumerate(nums):
+    #     if item in dic:
+    #         dic[item].append(i)
+    #     else:
+    #         dic[item] = [i]
 
-    nums.sort()
-    left, right = 0, len(nums) - 1
-    while left < right:
-        if nums[left] + nums[right] == target:
-            if nums[left] == nums[right]:
-                return dic[nums[left]]
-            else:
-                return [dic[nums[left]][0], dic[nums[right]][0]]
-        elif nums[left] + nums[right] < target:
-            left += 1
+    # nums.sort()
+    # left, right = 0, len(nums) - 1
+    # while left < right:
+    #     if nums[left] + nums[right] == target:
+    #         if nums[left] == nums[right]:
+    #             return dic[nums[left]]
+    #         else:
+    #             return [dic[nums[left]][0], dic[nums[right]][0]]
+    #     elif nums[left] + nums[right] < target:
+    #         left += 1
+    #     else:
+    #         right -= 1
+
+    # Hash table
+    nums_map = {}
+    for ind, i in enumerate(nums):
+        if i not in nums_map:
+            nums_map[i] = [ind]
         else:
-            right -= 1
+            nums_map[i].append(ind)
+    for k, v in nums_map.items():
+        if target - k in nums_map:
+            if target - k != k:
+                return [v[0], nums_map[target - k][0]]
+            elif len(nums_map[target - k]) > 1:
+                return [v[0], v[1]]
 
 # 26. Remove Duplicates from Sorted Array
 def removeDuplicates(nums: list) -> int:
