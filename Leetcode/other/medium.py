@@ -17,6 +17,37 @@ def isValidSudoku(board: list) -> bool:
     
     return True
 
+# 146. LRU Cache
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.cache = {}
+        self.priority = []
+        self.capacity = capacity
+
+    def get(self, key: int) -> int:
+        if key in self.cache:
+            self.priority.remove(key)
+            self.priority.append(key)
+            return self.cache[key]
+        else:
+            return -1
+
+    def put(self, key: int, value: int) -> None:
+        if key not in self.cache:
+            if len(self.priority) < self.capacity:
+                self.priority.append(key)
+                self.cache[key] = value
+            else:
+                ind = self.priority.pop(0)
+                del self.cache[ind]
+                self.priority.append(key)
+                self.cache[key] = value
+        else:
+            self.priority.remove(key)
+            self.priority.append(key)
+            self.cache[key] = value
+
 # 215. Kth Largest Element in an Array
 def findKthLargest(nums, k):
     nums.sort(reverse=True)
