@@ -20,24 +20,28 @@ def longestCommonPrefix(strs: list) -> str:
 
 # 20. Valid Parentheses
 def isValid(s: str) -> bool:
-    left, right, strs = ["{", "[", "("], ["}", "]", ")"], list(s)
-    
-    if not len(strs):
+    l, r, s_list = {'(':0, '{':1, '[':2}, {')':0, '}':1, ']':2}, list(s)
+    if not s:
         return True
-    if len(strs) % 2 == 1 or strs[0] in right:
+    if s[0] in r:
         return False
-    
-    stack = [strs.pop(0)]
-    while len(strs):
-        cur = strs.pop(0)
-        if cur in left:
+        
+    stack = [s_list.pop(0)]
+    while s_list:
+        cur = s_list.pop(0)
+        if cur in l:
             stack.append(cur)
-        elif not len(stack) or left.index(stack[-1]) != right.index(cur):
-            return False
+        elif stack:
+            if stack[-1] in r:
+                return False
+            elif l[stack[-1]] != r[cur]:
+                return False
+            else:
+                stack.pop()
         else:
-            stack.pop()
+            return False
             
-    return False if len(stack) else True
+    return not stack
 
 # 28. Implement strStr()
 def strStr(haystack: str, needle: str) -> int:
