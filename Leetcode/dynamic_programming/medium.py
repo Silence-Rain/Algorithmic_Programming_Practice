@@ -1,3 +1,27 @@
+# 5. Longest Palindromic Substring
+def longestPalindrome(s: str) -> str:
+    if not s:
+        return ""
+    
+    n = len(s)
+    dp = [[False for _ in range(n)] for _ in range(n)]
+    max_i, max_j = 0,0
+    for i in range(n - 1):
+        dp[i][i] = True
+        if s[i] == s[i + 1]:
+            dp[i][i + 1] = True
+            max_i, max_j = i, i + 1
+    dp[n - 1][n - 1] = True
+    
+    for i in range(n - 2, -1, -1):
+        for j in range(i + 2, n):
+            if dp[i + 1][j - 1] and (s[i] == s[j]):
+                dp[i][j] = True
+                if j - i > max_j - max_i:
+                    max_i, max_j = i, j
+          
+    return s[max_i:max_j + 1]
+
 # 221. Maximal Square
 def maximalSquare(self, matrix: List[List[str]]) -> int:
 	if len(matrix) == 0:
