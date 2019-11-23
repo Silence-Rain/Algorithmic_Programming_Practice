@@ -1,5 +1,6 @@
 from typing import List
 
+# 42. Trapping Rain Water
 def trap(height: List[int]) -> int:
 	if not height:
         return 0
@@ -15,5 +16,3 @@ def trap(height: List[int]) -> int:
         
     return res
     
-if __name__ == '__main__':
-    print(trap([0,1,0,2,1,0,1,3,2,1,2,1]))
