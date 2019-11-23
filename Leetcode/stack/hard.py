@@ -1,13 +1,19 @@
 from typing import List
 
-def trap(self, height: List[int]) -> int:
-    total = 0
+def trap(height: List[int]) -> int:
+	if not height:
+        return 0
+        
+    max_left, max_right, res = [0 for _ in height], [0 for _ in height], 0
+    max_left[0], max_right[-1] = height[0], height[-1]
+    for i in range(1, len(height)):
+        max_left[i] = max(height[i], max_left[i - 1])
+        max_right[len(height) - i - 1] = max(height[len(height) - i - 1], max_right[len(height) - i])
+
     for i in range(len(height)):
-        l, r = 0, 0
-        for j in range(0, i + 1):
-            l = max(l, height[j])
-        for j in range(i, len(height)):
-            r = max(r, height[j])
-        total += min(l, r) - height[i]
+        res += min(max_left[i], max_right[i]) - height[i]
+        
+    return res
     
-    return total
+if __name__ == '__main__':
+    print(trap([0,1,0,2,1,0,1,3,2,1,2,1]))
