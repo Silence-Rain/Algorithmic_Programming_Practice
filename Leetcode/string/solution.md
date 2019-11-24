@@ -101,6 +101,9 @@
   - Split the path by `/`
   - Simplify the path according to the rules, then put correct compartment into stack
 
+- \#165 Compare Version Numbers
+
+
 ### Hard
 
 - \#30 Substring with Concatenation of All Words
