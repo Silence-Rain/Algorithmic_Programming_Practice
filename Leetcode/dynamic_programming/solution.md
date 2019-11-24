@@ -7,6 +7,8 @@
   - Construct a matrix `dp` to remember the maximum subarray ending with index `i` .
   - Starting from index 0, update the value of the current element as `dp[i] = max(dp[i-1] + nums[i], nums[i])` 
   
+- \#121 Best Time to Buy and Sell Stock
+  - `prev_min` represents the lowest price before current day, `after_max` represents the highest price after current day
 
 ### Medium
 
