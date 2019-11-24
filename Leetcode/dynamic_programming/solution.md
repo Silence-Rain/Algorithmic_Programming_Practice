@@ -1,4 +1,4 @@
-#  olution of Dynamic Programming's Problems
+#  Solution of Dynamic Programming's Problems
 
 ### Easy
 
