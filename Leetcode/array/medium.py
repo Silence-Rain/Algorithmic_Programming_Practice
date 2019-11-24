@@ -1,4 +1,5 @@
 import math
+from typing import List
 
 # 11. Container With Most Water
 def maxArea(height: list) -> int:
@@ -220,6 +221,30 @@ def sortColors(nums: list) -> None:
             nums[i] = nums[l] - nums[i]
             nums[l] = nums[l] - nums[i]
             l += 1
+
+# 238. Product of Array Except Self
+def productExceptSelf(nums: List[int]) -> List[int]:
+    total, res, zeros_cnt = 1, [], 0
+    for i in range(len(nums)):
+        if nums[i]:
+            total *= nums[i]
+        else:
+            zeros_cnt += 1
+    
+    if zeros_cnt == len(nums):
+        return nums
+    if zeros_cnt > 1:
+        return [0 for _ in range(len(nums))]
+    
+    for i in nums:
+        if not zeros_cnt:
+            res.append(int(total / i))
+        elif i:
+            res.append(0)
+        else:
+            res.append(total)
+    
+    return res
 
 # 525. Contiguous Array
 def findMaxLength(nums):

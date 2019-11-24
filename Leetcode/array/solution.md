@@ -124,6 +124,11 @@
   - Maintain 2 pointers: `l` represents the end of '0' area, `r` represents the beginning of '2' area
   - If current element is '0', swap it with `nums[l]`. If it is '2', swap it with `nums[r]`. Otherwise, do nothing
 
+- \#238 Product of Array Except Self
+
+  - The expected result is actually `totalProduct / currentValue`
+  - Consider the affect of 0
+
 - \#525 Contiguous Array
 
   Basic idea: Hash map
